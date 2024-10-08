@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Page</title>
+  <link rel="stylesheet" href="Registration.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMg5hhG5DdfIhxVmz0E5xM7ctzR6nH5XH/E4nq" crossorigin="anonymous"/>
+  <link rel="icon" href="assets/img/chotalogo.png" type="image/x-icon"> <!-- Change this to your favicon path -->
+
+</head>
+<style>
+    /* src/components/Registration.css */
+/* Import Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@600&display=swap");
+
+/* CSS Variables for Flexibility */
+:root {
+  /* --primary-gradient: linear-gradient(135deg, #161616, #000000); */
+  --title-color: #ffd700; /* Golden */
+  background-image: url('/assets/img/regis.jpg'); /* Replace with your image path */
+  background-size: cover; /* Ensures the image covers the container */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  --form-background: rgba(255, 255, 255, 0.1);
+  --input-background: rgba(255, 255, 255, 0.2);
+  --input-focus-bg: rgba(255, 255, 255, 0.3);
+  --error-color: #ff4b2b;
+  --button-gradient: linear-gradient(45deg, #ff416c, #ff4b2b);
+  --white: #ffffff;
+  --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  --box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --focus-glow: 0 0 10px rgba(255, 215, 0, 0.7);
+  --button-hover-shadow: 0 0 15px rgba(255, 70, 108, 0.6);
+}
+
+/* Reset default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container Styling */
+.registration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  min-height: 100vh;
+  background: var(--primary-gradient);
+  font-family: "Montserrat", sans-serif;
+  padding: 1rem;
+}
+
+/* Form Styling */
+.registration-form {
+  background: var(--form-background);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid rgb(156, 156, 156);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Form Title */
+.form-title {
+  text-align: center;
+  font-size: 2rem;
+  font-family: "Cinzel", serif;
+  margin-bottom: 2rem;
+  color: var(--title-color);
+  text-shadow: var(--text-shadow);
+}
+
+/* Form Group */
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+/* Icons */
+.form-icon {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: var(--title-color);
+  font-size: 1.2rem;
+}
+
+/* Input Fields */
+.registration-form input,
+.registration-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  border: none;
+  border-radius: 20px;
+  background: var(--input-background);
+  color: var(--white);
+  font-size: 1rem;
+  outline: none;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.registration-form input::placeholder,
+.registration-form textarea::placeholder {
+  color: var(--white);
+  opacity: 0.7;
+}
+
+/* Textarea Specific */
+.registration-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Input Focus */
+.registration-form input:focus,
+.registration-form textarea:focus {
+  background: var(--input-focus-bg);
+  box-shadow: var(--focus-glow);
+}
+
+/* Error States */
+.input-error {
+  border: 1px solid var(--error-color);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.9rem;
+  margin-top: -1rem;
+  margin-bottom: 0.5rem;
+  padding-left: 3rem;
+}
+
+/* Submit Button */
+.submit-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--button-gradient);
+  border: none;
+  border-radius: 20px;
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-button:hover {
+  transform: scale(1.05);
+  box-shadow: var(--button-hover-shadow);
+}
+
+.button-icon {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* PAN Status Message Styling */
+#panStatusMessage {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  color: var(--white);
+}
+
+/* Success Message for Valid PAN */
+#panStatusMessage.success {
+  color: #28a745; /* Green for success */
+}
+
+/* Error Message for Invalid PAN */
+#panStatusMessage.error {
+  color: var(--error-color); /* Red for error */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .registration-form {
+    padding: 1.5rem;
+  }
+
+  .form-title {
+    font-size: 1.8rem;
+  }
+
+  .form-icon {
+    font-size: 1rem;
+  }
+
+  .submit-button {
+    font-size: 1rem;
+  }
+
+  .button-icon {
+    font-size: 1rem;
+  }
+
+  #panStatusMessage {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .registration-form {
+    padding: 1rem;
+  }
+
+  .form-title {
+    font-size: 1.6rem;
+  }
+
+  .form-icon {
+    font-size: 0.9rem;
+  }
+
+  .submit-button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .button-icon {
+    font-size: 0.9rem;
+  }
+
+  #panStatusMessage {
+    font-size: 0.85rem;
+  }
+}
+
+</style>
+<div class="registration-container">
+  <form class="registration-form" id="registrationForm">
+      <h2 class="form-title">
+          <img src="/assets/img/1005.png" width="65%"> Register
+      </h2>
+
+      <!-- Name Field -->
+      <div class="form-group">
+          <!-- SVG Icon for Name -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-person" viewBox="0 0 16 16" style="position: absolute; left: 10px; top: 10px; font-size: 1.2rem;">
+              <path d="M10 5a2 2 0 1 0-4 0 2 2 0 0 0 4 0z"/>
+              <path fill-rule="evenodd" d="M0 14s1-3 7-3 7 3 7 3-1 1-7 1-7-1-7-1z"/>
+          </svg>
+          <input type="text" id="name" name="name" placeholder="Name" class="input-field" required />
+          <span id="nameError" class="error-message"></span>
+      </div>
+
+      <!-- Phone Field -->
+      <div class="form-group">
+          <!-- SVG Icon for Phone -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-telephone" viewBox="0 0 16 16" style="position: absolute; left: 10px; top: 10px; font-size: 1.2rem;">
+              <path d="M3.654 1.328A1.002 1.002 0 0 1 4.408.268l1.473 1.473a1.002 1.002 0 0 1 .29 1.015l-.573 1.716a1.001 1.001 0 0 1-.836.69l-1.65.155a1.002 1.002 0 0 1-1.04-.455C1.133 2.988 1.916 1.721 3.654 1.328zm9.21 1.635a1 1 0 0 0-1.415 0L11 4.743a1 1 0 0 0 .418 1.516l1.528.572a1 1 0 0 0 1.4-.728l.157-1.698a1 1 0 0 0-.294-.903l-1.322-1.32zm-4.892 1.748a1 1 0 0 1 1.415 0l1.5 1.5a1 1 0 0 1 0 1.415l-1.5 1.5a1 1 0 0 1-1.415 0l-1.5-1.5a1 1 0 0 1 0-1.415l1.5-1.5z"/>
+          </svg>
+          <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="input-field" maxlength="10" required />
+          <span id="phoneError" class="error-message"></span>
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+          <!-- SVG Icon for Email -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-envelope" viewBox="0 0 16 16" style="position: absolute; left: 10px; top: 10px; font-size: 1.2rem;">
+              <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2 0h12v1.086L8 8 2 5.086V4z"/>
+          </svg>
+          <input type="email" id="email" name="email" placeholder="Email" class="input-field" required />
+          <span id="emailError" class="error-message"></span>
+      </div>
+
+      <!-- PanCard Number Field -->
+      
+
+      <!-- AadharCard Number Field -->
+      <div class="form-group">
+          <!-- SVG Icon for AadharCard -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-card" viewBox="0 0 16 16" style="position: absolute; left: 10px; top: 10px; font-size: 1.2rem;">
+              <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2 1v8h12V5H2z"/>
+          </svg>
+          <input type="text" id="aadharcard" name="aadharcard" placeholder="AadharCard Number (12 digits)" class="input-field" maxlength="12" required />
+          <span id="aadharcardError" class="error-message"></span>
+      </div>
+
+      <!-- Address Field -->
+      <div class="form-group">
+          <!-- SVG Icon for Address -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-house" viewBox="0 0 16 16" style="position: absolute; left: 10px; top: 10px; font-size: 1.2rem;">
+              <path d="M8 0l6 6H2l6-6zM0 7v8h4v-4h4v4h4V7H0z"/>
+          </svg>
+          <textarea id="address" name="address" placeholder="Address" class="input-field" required></textarea>
+          <span id="addressError" class="error-message"></span>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" id="submitButton" class="submit-button">
+          <i class="fas fa-paper-plane button-icon"></i> Register
+      </button>
+
+      <!-- Redirect to Login Page -->
+      <div class="redirect-link">
+          <p>Already have an account? <a href="/" class="login-link">Login here</a></p>
+      </div>
+
+      <!-- API Response Message -->
+      <p id="apiResponse" class="api-response"></p>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+  // let panValid = false; // Track whether PAN is valid or not
+  // let debounceTimeout = null;
+
+  // // Convert PAN card input to uppercase automatically
+  // document.getElementById('pancard').addEventListener('input', function () {
+  //     this.value = this.value.toUpperCase();
+  // });
+
+  // document.getElementById('pancard').addEventListener('input', function () {
+  //     const pancard = this.value.trim();
+  //     clearTimeout(debounceTimeout); // Clear the previous timeout if any
+
+  //     // Validate PAN format before making the API call
+  //     if (/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(pancard)) {
+  //         debounceTimeout = setTimeout(() => {
+  //             checkPAN(pancard);
+  //         }, 500); // Delay for debouncing
+  //     } else {
+  //         document.getElementById('panStatusMessage').innerText = "Invalid PAN format.";
+  //         panValid = false;
+  //         toggleSubmitButton();
+  //     }
+  // });
+
+  // async function checkPAN(pancard) {
+  //     try {
+  //         const response = await axios.post('http://localhost:7500/back/checkPan', {
+  //             txtPANNo: pancard
+  //         });
+
+  //         const panData = response.data[0];
+  //         const panInfo = panData.data[0];
+  //         const panStatusMessage = document.getElementById('panStatusMessage');
+
+  //         if (panInfo.valid === "True") {
+  //             panStatusMessage.innerHTML = `Registered Name: <strong>${panInfo.registered_name}</strong>`;
+  //             panValid = true;
+  //         } else {
+  //             panStatusMessage.innerHTML = `<strong>Unauthorized User. PAN verification failed.</strong>`;
+  //             panValid = false;
+  //         }
+
+  //         toggleSubmitButton();
+
+  //     } catch (error) {
+  //         console.error('Error checking PAN:', error);
+  //         document.getElementById('panStatusMessage').innerText = "Error verifying PAN. Please try again.";
+  //         panValid = false;
+  //         toggleSubmitButton();
+  //     }
+  // }
+
+  function toggleSubmitButton() {
+    
+  }
+
+  document.getElementById('registrationForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+
+      const formData = {
+          name: document.getElementById('name').value.trim(),
+          phone: document.getElementById('phone').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          // pancard: document.getElementById('pancard').value.trim(),
+          aadharcard: document.getElementById('aadharcard').value.trim(),
+          address: document.getElementById('address').value.trim()
+      };
+
+      const errors = validateForm(formData);
+      if (Object.keys(errors).length > 0) {
+          displayErrors(errors);
+      } else {
+          try {
+              const response = await fetch('http://localhost:7500/back/registerfrontendData', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(formData)
+              });
+
+              const data = await response.json();
+              document.getElementById('apiResponse').innerText = data.message;
+              // console.log(data.message,"data.successdata.success")
+              if (data.message ==="Registration Successful!") {
+                  // Clear form fields on success
+                  window.location.href = "/";
+              } else {
+                  document.getElementById('apiResponse').innerText = "Registration Failed.";
+              }
+          } catch (error) {
+              document.getElementById('apiResponse').innerText = "Registration Failed.";
+          }
+      }
+  });
+
+  // Form validation logic
+  function validateForm(data) {
+      let errors = {};
+
+      if (!data.name) errors.name = "Name is required.";
+      if (!data.phone || !/^\d{10}$/.test(data.phone)) errors.phone = "Phone number must be exactly 10 digits.";
+      if (!data.email || !/\S+@\S+\.\S+/.test(data.email)) errors.email = "Valid email is required.";
+      // if (!data.pancard || !/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(data.pancard)) errors.pancard = "Invalid PanCard number.";
+      if (!data.aadharcard || !/^\d{12}$/.test(data.aadharcard)) errors.aadharcard = "AadharCard must be exactly 12 digits.";
+      if (!data.address) errors.address = "Address is required.";
+
+      return errors;
+  }
+  const checkTokenAndRedirect = () => {
+        const token = localStorage.getItem('jwtToken1');
+        // console.log(token)
+        if (token) {
+            window.location.href = "/Home1";
+        }
+    };
+
+    // Call the token check on page load
+    window.onload = checkTokenAndRedirect;
+  // Display error messages
+  function displayErrors(errors) {
+      document.getElementById('nameError').innerText = errors.name || "";
+      document.getElementById('phoneError').innerText = errors.phone || "";
+      document.getElementById('emailError').innerText = errors.email || "";
+      // document.getElementById('pancardError').innerText = errors.pancard || "";
+      document.getElementById('aadharcardError').innerText = errors.aadharcard || "";
+      document.getElementById('addressError').innerText = errors.address || "";
+  }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<%-  include("include/header.ejs") -%>
+
+  <main id="main" class="main">
+    <div class="pagetitle">
+      <h1>Change Currency from USDT to INR</h1>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+            
+              <!-- Table with stripped rows -->
+              <table class="table datatable" id="withdrawTable">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">INR</th>
+                    <th scope="col">USDT</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="currencyTableBody">
+                  <!-- Data will be dynamically populated here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Modal for changing currency -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Change USDT to INR</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="currencyForm">
+              <div class="mb-3">
+                <label for="usdtInput" class="form-label">USDT</label>
+                <input type="number" class="form-control" id="usdtInput" placeholder="Enter USDT amount">
+              </div>
+              <div class="mb-3">
+                <label for="inrInput" class="form-label">INR</label>
+                <input type="number" class="form-control" id="inrInput" placeholder="Enter INR amount">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Fetch data on page load
+      document.addEventListener('DOMContentLoaded', function () {
+        fetchCurrencyData();
+      });
+
+      // Function to fetch the currency data and populate the table
+      function fetchCurrencyData() {
+        fetch('http://localhost:7500/back/getCurrencyData')  // Replace with your actual API URL
+          .then(response => response.json())
+          .then(data => {
+            const tableBody = document.getElementById('currencyTableBody');
+            tableBody.innerHTML = ''; // Clear existing table rows
+
+            if (data && data.data) {
+              // Assuming data.data contains the currency information
+              const currency = data.data;
+              const row = `
+                <tr>
+                  <td>${currency._id}</td>
+                  <td>${currency.inr}</td>
+                  <td>${currency.usdt}</td>
+                  <td>
+                    <i class="bi bi-pencil-square text-success-update" style="font-size:1.2rem;"
+                      data-toggle="modal" data-target="#exampleModal1" onclick="populateForm('${currency.usdt}', '${currency.inr}')">
+                    </i>
+                  </td>
+                </tr>
+              `;
+              tableBody.innerHTML += row;
+            } else {
+              tableBody.innerHTML = '<tr><td colspan="4">No data found</td></tr>';
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+          });
+      }
+
+      // Function to populate the form with existing currency values
+      function populateForm(usdt, inr) {
+        document.getElementById('usdtInput').value = usdt;
+        document.getElementById('inrInput').value = inr;
+      }
+
+      // Save changes (Insert/Update currency data)
+      function saveChanges() {
+        const usdt = document.getElementById('usdtInput').value;
+        const inr = document.getElementById('inrInput').value;
+
+        // API call to insert or update data in the database
+        fetch('http://localhost:7500/back/currency', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ usdt: usdt, inr: inr }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+          $('#exampleModal1').modal('hide'); // Close the modal after saving
+          fetchCurrencyData(); // Refresh the table data
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          alert('Failed to save data.');
+        });
+      }
+    </script>
+
+<%- include("include/footer.ejs") -%>

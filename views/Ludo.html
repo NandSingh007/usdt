@@ -1,0 +1,58 @@
+<%- include("include/header.ejs") -%>
+
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Bank Details</h1>
+  </div>
+
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+
+            <!-- Table to display bank details -->
+            <table class="table datatable">
+              <thead>
+                <tr>
+                  <th>Sr.No</th>
+                  <th>Phone</th>
+                  <th>Email</th>
+                  <th>Bank Name</th>
+                  <th>Account No.</th>
+                  <th>IFSC Code</th>
+                  <th>Account Holder</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% if (bankDetails.length === 0) { %>
+                  <tr>
+                    <td colspan="6" style="text-align: center;">No bank details available</td>
+                  </tr>
+                <% } else { %>
+                  <% bankDetails.forEach((bank, index) => { %>
+                    <tr>
+                      <td><%= index + 1 %></td> <!-- Display serial number -->
+                      <td><%= bank.phone %></td>
+                      <td><%= bank.email %></td>
+                      <td><%= bank.bankName %></td>
+                      <td><%= bank.accountNo %></td>
+                      <td><%= bank.ifscCode %></td>
+                      <td><%= bank.accountHolder %></td>
+                    </tr>
+                  <% }) %>
+                <% } %>
+              </tbody>
+            </table>
+
+            <!-- Pagination Controls -->
+           
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include("include/footer.ejs") -%>

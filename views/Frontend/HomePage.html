@@ -1,0 +1,2711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Quick - Fast and Reliable Loan Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Loan Quick offers fast and reliable loan solutions to help you achieve your dreams. Apply now and get approved quickly.">
+    <meta name="keywords" content="loan, quick loan, fast loan, reliable loan, loan solutions">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Loan Quick - Fast and Reliable Loan Solutions">
+    <meta property="og:description" content="Loan Quick offers fast and reliable loan solutions to help you achieve your dreams. Apply now and get approved quickly.">
+    <meta property="og:image" content="path/to/your/image.jpg">
+    <meta property="og:url" content="https://www.loanquick.com">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/quick.png" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+    <style>
+        /* Initial state of the step items */
+.step-item {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Animated state of the step items */
+.step-item.animate {
+    opacity: 1;
+    transform: scale(1);
+}
+
+        .offer-icon {
+    font-size: 3rem; /* Adjust the size as needed */
+    color: #007bff; /* Icon color, adjust as needed */
+    margin-bottom: 15px; /* Space below the icon */
+    display: block; /* Ensure icon is displayed as a block element */
+    text-align: center; /* Center-align the icon */
+}
+
+.offer-section {
+    text-align: center; /* Center-align the heading and grid */
+}
+
+.offer-heading {
+    font-size: 2rem; /* Adjust heading size as needed */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; /* Space between grid items */
+}
+
+.offer-item {
+    padding: 20px;
+    border: 1px solid #ddd; /* Light border around items */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    text-align: center; /* Center-align text in each item */
+}
+
+/* Example CSS */
+.step-icon {
+    font-size: 2rem; /* Adjust the size as needed */
+    color: #1f531c; /* Icon color, adjust as needed */
+    margin-bottom: 10px; /* Space below the icon */
+}
+
+.step-box {
+    text-align: center; /* Center-align text and icons */
+    position: relative;
+}
+
+.step-number {
+    font-weight: bold;
+    font-size: 1.5rem; /* Adjust font size as needed */
+}
+
+.step-title {
+    font-size: 1.25rem; /* Adjust font size as needed */
+}
+
+.step-text {
+    font-size: 1rem; /* Adjust font size as needed */
+}
+
+.step-image {
+    margin-top: 15px; /* Space above the image */
+}
+
+.review-icon {
+    font-size: 2rem; /* Adjust the size as needed */
+    color: #007bff; /* Default color, adjust as needed */
+    margin-bottom: 10px; /* Space below the icon */
+}
+
+.customer-review-box {
+    /* Other styling for the review boxes */
+    /* width: 340px !important; */
+    margin: 5px;
+    position: relative;
+}
+
+.customer-review-box .review-icon {
+    position: absolute;
+    top: 10px; /* Adjust position as needed */
+    right: 10px; /* Adjust position as needed */
+}
+
+
+.services-section {
+    padding: 50px 0;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.services-slider {
+    position: relative;
+}
+.service-details{
+    list-style: none;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #e9e9e9;
+    /* border-top: 3px solid rgba(104, 95, 95, 0.539);
+    border-bottom: 3px solid rgba(87, 84, 84, 0.423); */
+    border-radius:5px;
+    /* border: 1px solid black; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.service-item-reverse {
+    flex-direction: row-reverse;
+}
+
+.service-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.service-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px; /* Adjust as needed */
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.service-text-wrapper {
+    flex: 2;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.service-text-wrapper h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.service-text-wrapper p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .service-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .service-image-wrapper {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .service-item {
+        padding: 15px;
+    }
+    
+    .service-text-wrapper h3 {
+        font-size: 20px;
+    }
+    
+    .service-text-wrapper p {
+        font-size: 14px;
+    }
+}
+
+
+/* Navbar Styles */
+.navbar {
+    z-index: 1000;
+    top: 0px;
+    position: sticky;
+  background-color: #041b95e6;
+}
+.navbar-brand img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid rgb(255, 145, 0);
+}
+
+
+.nav-link {
+  color: white !important;
+  
+  font-size: 1.1rem !important;
+  font-weight: 700;
+  /* font-weight: bold; */
+}
+
+.nav-link:hover {
+  color: #ddd !important;
+}
+
+.login-btn {
+  padding: 6px 15px;
+  border-radius: 10px;
+  background-color: rgb(6, 99, 192);
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: rgb(5, 89, 172);
+}
+
+
+.btn-primary {
+  background-color: rgb(6, 99, 192);
+  border-color: rgb(6, 99, 192);
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: rgb(5, 89, 172);
+}
+
+/* Links below the form */
+.register-link, .forgot-password-link {
+  color: rgb(6, 99, 192);
+  font-weight: bold;
+}
+
+.register-link:hover, .forgot-password-link:hover {
+  color: rgb(5, 89, 172);
+  text-decoration: underline;
+}
+
+.footer {
+  background-color: #1d319f;
+  color: #ffffff;
+  padding: 40px 40px;
+}
+
+.section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.connect {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-link {
+  color: #ffffff;
+  font-size: 24px;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-link:hover {
+  color: #007bff;
+  transform: scale(1.2);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.column {
+  flex: 1;
+  min-width: 220px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 18px;
+  margin-bottom: 15px;
+  position: relative;
+  font-weight: bold;
+}
+
+.title i {
+  margin-right: 10px;
+}
+
+.highlight-red {
+  color: red;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.highlight-info {
+  color: #2fb817;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.highlight-slateblue {
+  color: rgb(90, 205, 136);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.link {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: #0056b3;
+}
+
+.copy {
+  text-align: center;
+  padding: 15px 0;
+  background-color: #b91616;
+}
+
+.copy .link {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .connect {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-link {
+    font-size: 20px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .highlight-red, .highlight-info, .highlight-slateblue {
+    font-size: 14px;
+  }
+
+  .connect {
+    font-size: 14px;
+  }
+}
+.customer-reviews-section {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.customer-review-slider .slider {
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.customer-review-box {
+    background-color: #fff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    /* width: 60%; */
+    border-radius: 10px;
+    flex: 1;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.customer-review-box:hover {
+    transform: translateY(-10px);
+}
+
+.user-details {
+    position: relative;
+}
+
+.user-img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.user-img img {
+    width: 100%;
+    height: auto;
+}
+
+.nameofuser {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.profession {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.user-text-thought {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .customer-review-slider .slider {
+        flex-direction: column;
+    }
+
+    .customer-review-box {
+        margin-bottom: 20px;
+    }
+}
+.about-us-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.about-us-heading {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #007bff;
+}
+
+.about-us-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.about-section, .success-section, .mission-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h3, .success-section h3, .mission-section h3 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.about-section p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.success-section {
+    padding: 20px;
+    background-color: #f7f7f7;
+}
+
+.success-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.success-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+.success-item i {
+    font-size: 24px;
+    color: #007bff;
+}
+
+.success-text h4 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.success-text p {
+    font-size: 16px;
+    color: #666;
+}
+
+.mission-section {
+    padding: 20px;
+    background-color: #f7f7f7;
+}
+
+.mission-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mission-item {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.mission-item i {
+    font-size: 20px;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+.mission-item span {
+    line-height: 1.6;
+}
+
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.video-wrapper video {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .about-us-content {
+        gap: 20px;
+    }
+
+    .about-section, .success-section, .mission-section {
+        padding: 15px;
+    }
+
+    .about-section h3, .success-section h3, .mission-section h3 {
+        font-size: 24px;
+    }
+
+    .about-section p, .success-text p {
+        font-size: 14px;
+    }
+
+    .success-item i {
+        font-size: 20px;
+    }
+
+    .mission-item {
+        font-size: 14px;
+    }
+
+    .mission-item i {
+        font-size: 18px;
+    }
+}
+
+
+  /* Container for the loan application process section */
+.loan-application-process {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Title of the section */
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #1a73e8;
+    text-align: center;
+}
+
+/* Wrapper for steps */
+.steps-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+/* Each step item */
+.step-item {
+    flex: 1 1 calc(33.333% - 30px);
+    max-width: 360px;
+}
+
+/* Styling for each step box */
+.step-box {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Number in each step box */
+.step-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a73e8;
+    margin-bottom: 15px;
+}
+
+/* Title in each step box */
+.step-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Text in each step box */
+.step-text {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Styling for step images */
+.step-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect for step boxes */
+.step-box:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .step-item {
+        flex: 1 1 100%;
+    }
+}
+
+        .navbar-brand {
+            color: #fff !important;
+        }
+        .navbar-nav .nav-link {
+            color: #fff !important;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ddd !important;
+        }
+
+        /* Main box styling */
+        .main-box-first {
+            padding: 30px;
+            margin-top: 50px;
+            color: #fff;
+            background: #041b95e6;
+            border-radius: 10px;
+        }
+        .loan-left-text {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+        .highlight {
+            color: #f39c12;
+        }
+        .highlight-red {
+            color: #e74c3c;
+        }
+        .loan-down-text {
+            font-size: 1.5rem;
+            margin-bottom: 35px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        .application-link {
+    display: inline-block;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #cd2727, #e67e22);
+    font-size: 1.4rem !important;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.application-link:hover {
+    background: linear-gradient(135deg, #fb3f35, #e20039);
+    color: #fff !important;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.application-link:active {
+    background: linear-gradient(135deg, #ff3748, #bf1300);
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.application-link::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.4s ease;
+    border-radius: 50%;
+}
+
+.application-link:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+/* Container for the partner section */
+/* Container for the partner section */
+.partner-section {
+    padding: 60px 20px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+/* Title of the partner section */
+.partner-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #1a73e8;
+    position: relative;
+    display: inline-block;
+}
+
+/* Underline for the title */
+.partner-title::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background-color: #1a73e8;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* Partner container for slider */
+.partner-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Slider wrapper */
+.partner-slider {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Individual slide */
+.partner-slide {
+    min-width: 210px;
+    transition: transform 0.5s ease-in-out;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+/* Partner image */
+.partner-image {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect on partner image */
+.partner-slide:hover .partner-image {
+    transform: scale(1.1);
+}
+
+/* Animation for slider */
+.partner-slider::before,
+.partner-slider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    background: linear-gradient(to right, #f7f7f7, rgba(255, 255, 255, 0));
+    z-index: 1;
+}
+
+.partner-slider::after {
+    right: 0;
+    transform: rotate(180deg);
+}
+
+.partner-slider::before {
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .partner-slider {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .partner-slide {
+        min-width: 150px;
+        margin-bottom: 20px;
+    }
+}
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            animation: zoomIn 1s ease-out;
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* What We Offer Section */
+        .what-we-offer {
+            /* padding: 60px 0; */
+            /* background-color: #fff; */
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            color: #333;
+        }
+
+        .partner {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 60px;
+          
+            color: #f39c12;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .partner::before, .partner::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: #f39c12;
+            bottom: -10px;
+            border-radius: 5px;
+        }
+        .partner::after {
+            background: #e74c3c;
+            width: 40px;
+            left: calc(50% - 20px);
+        }
+
+        .gif-box {
+    text-align: center;
+    margin-bottom: 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(180, 179, 179, 0.286); /* Adding box shadow */
+}
+
+.gif-box:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(247, 247, 247, 0.345); /* Enhanced shadow on hover */
+}
+
+.gif-box img {
+    max-width: 160px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    animation: zoomIn 1s ease-out;
+}
+
+        .gif-bottom-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #cecece;
+        }
+        .gif-box-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                text-align: center;
+            }
+            .navbar-toggler {
+                border-color: #fff;
+            }
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M5 7h20M5 15h20M5 23h20'/%3E%3C/svg%3E");
+            }
+            .main-box-first {
+                padding: 20px;
+                text-align: center;
+            }
+            .loan-left-text {
+                font-size: 1.9rem;
+            }
+            .loan-down-text {
+                font-size: 1rem;
+            }
+            .partner {
+                font-size: 1.5rem;
+            }
+            .gif-box img {
+                max-width: 80px;
+            }
+            .gif-bottom-text {
+                font-size: 1rem;
+            }
+            .gif-box-row {
+                gap: 15px;
+            }
+        }
+        .watch-video {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+  /* Modal Content Background and Overlay */
+ /* Modal Content Background and Overlay */
+.modal-content {
+    background: #ffffff; /* Clean white background */
+    color: #333; /* Dark text color for readability */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Deeper shadow for more emphasis */
+    border: none;
+}
+
+/* Modal Header */
+.modal-header {
+    background-color: #0056b3; /* Deep blue for a professional look */
+    color: #fff; /* White text color */
+    border-bottom: 2px solid #004080; /* Slightly darker border for contrast */
+    padding: 20px 30px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    position: relative; /* Relative positioning for close button */
+}
+
+.modal-title {
+    font-size: 1.5rem; /* Larger title for emphasis */
+    font-weight: 700; /* Bold title for importance */
+}
+
+.close {
+    color: #fff; /* White color for close button */
+    opacity: 0.8; /* Slightly transparent */
+    font-size: 1.5rem; /* Larger size */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.close:hover {
+    color: #ff6f61; /* Subtle pinkish color on hover */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Modal Body */
+.modal-body {
+    background-color: #f5f5f5; /* Very light grey for a soft contrast */
+    padding: 30px;
+    border-radius: 0 0 12px 12px; /* Rounded bottom corners */
+}
+
+.form-group label {
+    font-weight: 600; /* Slightly bolder labels */
+    color: #333; /* Dark text for readability */
+    margin-bottom: 8px; /* Space between label and input */
+}
+
+.form-control {
+    background-color: #ffffff; /* Clean white background */
+    color: #333; /* Dark text */
+    border-radius: 6px; /* Rounded corners */
+    border: 1px solid #ddd; /* Light grey border */
+   padding: 5px !important;
+    margin-bottom: 16px;
+    transition: border-color 0.3s ease; /* Smooth border color transition */
+}
+
+.form-control::placeholder {
+    color: #999; /* Subtle placeholder color */
+}
+
+.form-control:focus {
+    border-color: #0056b3; /* Blue border on focus */
+    box-shadow: 0 0 8px rgba(0, 86, 179, 0.3); /* Enhanced focus shadow */
+}
+
+/* Submit Button */
+.btn-primary {
+    background-color: #007bff; /* Consistent blue color */
+    border-color: #007bff;
+    color: #fff;
+    font-size: 1.1rem; /* Slightly larger text */
+    font-weight: 700; /* Bold text */
+    padding: 14px; /* Increased padding */
+    border-radius: 6px; /* Rounded corners */
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #004080; /* Matching border color */
+    transform: scale(1.02); /* Slight zoom effect on hover */
+}
+
+.btn-primary:active {
+    background-color: #004080; /* Even darker blue when active */
+    border-color: #003366; /* Matching border color */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-dialog {
+        max-width: 90%; /* Full-width modal on smaller screens */
+    }
+}
+/* Container for the offer section */
+/* Container for the offer section */
+/* Container for the offer section */
+/* Container for the offer section */
+.offer-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+    text-align: center;
+    color: #333;
+}
+
+/* Heading of the offer section */
+.offer-heading {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #1a73e8;
+    letter-spacing: 1px;
+}
+
+/* Grid container */
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    align-items: start;
+}
+
+/* Styling for each grid item */
+.offer-item {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Centering the image and adjusting its size */
+.offer-item img {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 20px;
+    object-fit: contain;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Heading inside each grid item */
+.offer-item h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #1a73e8;
+}
+
+/* Paragraph inside each grid item */
+.offer-item p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Hover effect for grid items */
+.offer-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25), 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.offer-item:hover img {
+    transform: scale(1.2);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .offer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .offer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .offer-heading {
+        font-size: 28px;
+    }
+
+    .offer-item h3 {
+        font-size: 20px;
+    }
+
+    .offer-item p {
+        font-size: 15px;
+    }
+}
+
+/* slider css  */
+    </style>
+    <style>
+        /* Slide in from left animation */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Slide in from right animation */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply animation classes */
+.slide-in-left {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 1s ease-out forwards;
+}
+/* 3D Zoom-out effect */
+@keyframes zoomOut3D {
+    from {
+        transform: perspective(1000px) rotateY(45deg) scale(1.5);
+        opacity: 0;
+    }
+    to {
+        transform: perspective(1000px) rotateY(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+.zoom-out-3d-animation {
+    animation: zoomOut3D 1s ease-out forwards;
+}
+
+/* Set initial hidden state for elements */
+.zoom-out-element {
+    transform: perspective(1000px) rotateY(45deg) scale(1.5);
+    opacity: 0;
+}
+
+    </style>
+</head>
+<body style="background: #ffffff; color: #333;">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+            <img src="/assets/img/quick.png" width="70px" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-home" style="color: #3498db;"></i> Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#AboutUs">
+                        <i class="fas fa-info-circle" style="color: #f39c12;"></i> About Us
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Service">
+                        <i class="fas fa-concierge-bell" style="color: #27ae60;"></i> Service
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#HowToApply">
+                        <i class="fas fa-book" style="color: #8e44ad;"></i> How To Apply
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/emi">
+                        <i class="fas fa-calculator" style="color: #e74c3c;"></i> Check EMI
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Reg" style="font-size: 16px; font-weight: bold;">
+                        <span style="padding: 6px 15px; border-radius: 10px; background-color: #0685c0; color: #fff;">
+                            Login
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt" style="color: #e74c3c;"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+  
+  
+<!-- model of login  -->
+<!-- Modal of Registration -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel">Registration</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <form id="registrationForm">
+                  <div class="form-group">
+                      <label for="phoneNumber">Phone Number</label>
+                      <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter your phone number" maxlength="10" required>
+                      <small id="phoneNumberError" class="form-text text-danger"></small>
+                  </div>
+                  <div class="form-group">
+                      <label for="email">Email address</label>
+                      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                      <small id="emailError" class="form-text text-danger"></small>
+                  </div>
+                  <div class="form-group">
+                      <label for="password">Password</label>
+                      <input type="password" class="form-control" id="password" placeholder="Password" required>
+                      <small id="passwordError" class="form-text text-danger"></small>
+                  </div>
+                  <div class="form-group">
+                      <label for="Username">Username</label>
+                      <input type="text" class="form-control" id="Username" placeholder="Enter your Username" required>
+                      <small id="usernameError" class="form-text text-danger"></small>
+                  </div>
+                  <div class="form-group">
+                      <label for="income">Income</label>
+                      <input type="number" class="form-control" id="income" placeholder="Enter your income" required>
+                      <small id="incomeError" class="form-text text-danger"></small>
+                  </div>
+                  <div class="form-group">
+                      <label for="jobType">Job Type</label>
+                      <select class="form-control" id="jobType" required>
+                          <option value="">Select job type</option>
+                          <option value="government">Government</option>
+                          <option value="private">Private</option>
+                          <option value="self-bussiness">self-Bussiness</option>
+                          <option value="self-Employe">self-Employe</option>
+                      </select>
+                      <small id="jobTypeError" class="form-text text-danger"></small>
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="state">State</label>
+                    <select class="form-control" id="state" required>
+                        <option value="">Select your state</option>
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                    <small id="stateError" class="form-text text-danger"></small>
+                </div>
+        
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <select class="form-control" id="city" required disabled>
+                        <option value="">Select your city</option>
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                    <small id="cityError" class="form-text text-danger"></small>
+                </div>
+                  <button type="submit" class="btn btn-primary btn-block">Register</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row main-box-first">
+        <!-- Text Content with Zoom Out Animation -->
+        <div class="col-md-7">
+            <h1 class="loan-left-text animated-zoom" id="loanText">
+                <i class="fas fa-rocket" style="color: rgb(71, 255, 92);"></i> Unlock Your Future with <span class="highlight">Fast & Simple</span> Collateral-Free
+                <span class="highlight-red">Loans</span>
+            </h1>
+            <p class="loan-down-text animated-zoom" id="loanDesc">
+                <i class="fas fa-hand-holding-usd" style="color: rgb(205, 255, 5);"></i> Empowering Your Business Dreams with <span class="highlight">Seamless</span> Financial Solutions
+            </p>
+            <p class="application animated-zoom" id="loanApply">
+                <a class="application-link" href="#" data-toggle="modal" data-target="#loginModal">
+                    <i class="fas fa-paper-plane" style="color: rgb(255, 226, 5);"></i> Apply Now
+                </a>
+            </p>
+        </div>
+        <!-- Image with Zoom Out Effect -->
+        <div class="col-md-5 text-center d-flex justify-content-center">
+            <img src="/assets/img/loan2.png" alt="Loan Image" id="loanImage" class="image-zoom">
+        </div>
+    </div>
+</div>
+
+<!-- Styles for Zoom Out Animation -->
+<style>
+    /* Initially make the content appear zoomed in */
+    .animated-zoom {
+        transform: scale(1.5);
+        opacity: 0;
+        transition: transform 1s ease-out, opacity 1s ease-out;
+    }
+
+    /* Image Zoom Effect */
+    .image-zoom {
+        transform: scale(1.5);
+        opacity: 0;
+        transition: transform 1.2s ease-out, opacity 1s ease-out;
+    }
+
+    /* Zoom out to normal size */
+    .zoomed-out {
+        transform: scale(1);
+        opacity: 1;
+    }
+</style>
+
+<!-- JavaScript to Trigger Zoom Out Effect -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Function to trigger zoom out on scroll or when the page loads
+        function zoomOutElements() {
+            const elementsToZoom = document.querySelectorAll('.animated-zoom, .image-zoom');
+            elementsToZoom.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                const isVisible = rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+                
+                if (isVisible) {
+                    element.classList.add('zoomed-out');
+                }
+            });
+        }
+
+        // Trigger zoom out on page load
+        zoomOutElements();
+
+        // Optionally, you can trigger on scroll for further elements
+        window.addEventListener('scroll', zoomOutElements);
+    });
+</script>
+
+
+      <!-- video section  -->
+      <div class="container">
+        <h5 class="partner">  <i class="fas fa-info-circle" style="color: #17a2b8; font-size: 2.5rem; margin-right: 15px;"></i>Watch Video</h5>
+        <div class="row watch-video">
+          <video width="90%" autoplay muted loo>
+            <source src=/assets/img/loanvideo.mp4 type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <!-- processing fess -->
+
+    <!-- What We Offer Section -->
+    <!-- <div class="what-we-offer" id="WhatWeOffer">
+        <div class="container">
+            <h5 class="partner">What We Offer</h5>
+            <div class="row gif-box-row">
+                <div class="col-md-3 col-sm-6 gif-box">
+                    <img src="/assets/img/collateral-fee.gif" alt="Up To 50 Lakh" class="gif-section-img" />
+                    <p class="gif-bottom-text">Up To 50 Lakh Loan</p>
+                </div>
+                <div class="col-md-3 col-sm-6 gif-box">
+                    <img src="/assets/img/low-processing-fee.gif" alt="Easy Process" class="gif-section-img" />
+                    <p class="gif-bottom-text">Easy Process</p>
+                </div>
+                <div class="col-md-3 col-sm-6 gif-box">
+                    <img src="/assets/img/step_3.gif" alt="Quick Approval" class="gif-section-img" />
+                    <p class="gif-bottom-text">Quick Approval</p>
+                </div>
+                <div class="col-md-3 col-sm-6 gif-box">
+                    <img src="/assets/img/up-to-50-lakh.gif" alt="Low Interest Rates" class="gif-section-img" />
+                    <p class="gif-bottom-text">Low Interest Rates</p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- What We Offer Section -->
+<!-- What We Offer Section -->
+<!-- What We Offer Section -->
+<div class="offer-section">
+    <h2 class="offer-heading">  <i class="fas fa-info-circle" style="color: #17a2b8; font-size: 2.5rem; margin-right: 15px;"></i>Why Choose Us</h2>
+    <div class="offer-grid">
+        <div class="offer-item">
+            <i class="fas fa-wallet offer-icon"></i>
+            <h3>Up to ₹50 Lakh</h3>
+            <p>Access high loan amounts with flexible repayment options tailored to your needs.</p>
+        </div>
+        <div class="offer-item">
+            <i class="fas fa-thumbs-up offer-icon"></i>
+            <h3>Quick Approval</h3>
+            <p>Receive prompt and efficient decisions with our streamlined approval process.</p>
+
+        </div>
+        <div class="offer-item">
+            <i class="fas fa-check-circle offer-icon"></i>
+            <h3>Easy Application</h3>
+            <p>Enjoy a hassle-free application process with minimal paperwork and quick approval.</p>
+        </div>
+        <div class="offer-item">
+            <i class="fas fa-percent offer-icon"></i>
+            <h3>Low Interest Rates</h3>
+            <p>Benefit from competitive interest rates designed to save you money.</p>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Slider Section -->
+<div class="partner-section" id="OurPackage">
+    <div class="partner-container">
+        <h2 class="partner-title">  <i class="fas fa-info-circle" style="color: #17a2b8; font-size: 2.5rem; margin-right: 15px;"></i>Our Partners</h2>
+        <div class="partner-slider">
+            <div class="partner-slide">
+                <img src="/assets/img/iifl-loan.png" alt="Ambit" class="partner-image" />
+            </div>
+            <div class="partner-slide">
+                <img src="/assets/img/canra.png" width="70%" alt="Ambit" class="partner-image" />
+            </div>
+            <div class="partner-slide">
+                <img src="/assets/img/icic.png" alt="ICIC" class="partner-image" />
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Processing Fees -->
+<div class="loan-application-process" id="HowToApply">
+    <div class="container">
+        <h2 class="section-title">
+            <i class="fas fa-info-circle" style="color: #17a2b8; font-size: 2.5rem; margin-right: 15px;"></i>
+            How Do I Apply For a Loan?
+        </h2>
+        <div class="steps-wrapper">
+            <div class="step-item">
+                <div class="step-box">
+                    <i class="fas fa-pencil-alt step-icon"></i>
+                    <p class="step-number">Step 1</p>
+                    <h3 class="step-title">Fill Out the Application Form</h3>
+                    <p class="step-text">
+                        Fill out the application form by entering basic details through the Tradeudhaar Customer Journey.
+                    </p>
+                    <img src="/assets/img/how.gif" width="55%" alt="Step 1" class="step-image" />
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-box">
+                    <i class="fas fa-file-signature step-icon"></i>
+                    <p class="step-number">Step 2</p>
+                    <h3 class="step-title">Complete Your Application</h3>
+                    <p class="step-text">
+                        Provide your basic documentation for taking a business loan, including GST and KYC documents.
+                    </p>
+                    <img src="/assets/img/step_2.gif" width="55%" alt="Step 2" class="step-image" />
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-box">
+                    <i class="fas fa-dollar-sign step-icon"></i>
+                    <p class="step-number">Step 3</p>
+                    <h3 class="step-title">Receive Your Loan</h3>
+                    <p class="step-text">
+                        Once your loan is sanctioned, you will receive the amount in your bank account within a few working days.
+                    </p>
+                    <img src="/assets/img/step_3.gif" width="55%" alt="Step 3" class="step-image" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const handleScrollAnimation = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    observer.unobserve(entry.target); // Stop observing after the animation is added
+                }
+            });
+        };
+
+        // Create an IntersectionObserver
+        const observer = new IntersectionObserver(handleScrollAnimation, {
+            root: null, // Use the viewport as the root
+            threshold: 0.3 // Trigger the animation when 30% of the element is visible
+        });
+
+        // Select all step items
+        const stepItems = document.querySelectorAll('.step-item');
+        stepItems.forEach(item => {
+            observer.observe(item);
+        });
+    });
+</script>
+
+
+<!-- About Us -->
+<!-- About Us --><!-- About Us -->
+<div class="about-us-section" id="AboutUs">
+    <div class="container">
+        <h2 class="about-us-heading"><i class="fas fa-info-circle" style="color: #17a2b8; font-size: 2.5rem; margin-right: 15px;"></i>About Us</h2>
+        <div class="row">
+            <!-- Left content that will slide in from the left -->
+            <div class="col-md-6 slide-left-content">
+                <div class="about-section">
+                    <h3>About Us</h3>
+                    <p>
+                        We offer hassle-free loan solutions with competitive rates and flexible options. Our experienced team ensures smooth applications and timely approvals.
+                    </p>
+                </div>
+                <div class="success-section">
+                    <h3>Our Success</h3>
+                    <div class="success-item">
+                        <i class="fas fa-trophy"></i>
+                        <p>10,000+ successful loans</p>
+                    </div>
+                    <div class="success-item">
+                        <i class="fas fa-chart-line"></i>
+                        <p>Consistent growth</p>
+                    </div>
+                    <div class="success-item">
+                        <i class="fas fa-users"></i>
+                        <p>High client satisfaction</p>
+                    </div>
+                </div>
+                <div class="mission-section">
+                    <h3>Our Mission</h3>
+                    <ul class="mission-list">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #28a745; font-size: 1.2rem; margin-right: 10px;"></i> Transparent financial solutions</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #28a745; font-size: 1.2rem; margin-right: 10px;"></i> Exceptional customer service</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #28a745; font-size: 1.2rem; margin-right: 10px;"></i> Flexible repayment options</li>
+                        <li><i class="fas fa-check-circle" style="color: #28a745; font-size: 1.2rem; margin-right: 10px;"></i> Long-term client relationships</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Right content that will slide in from the right -->
+            <div class="col-md-6 text-center slide-right-content">
+                <div class="video-wrapper">
+                    <video autoplay muted loop>
+                        <source src="/assets/img/ppr.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const leftContent = document.querySelector('.slide-left-content');
+        const rightContent = document.querySelector('.slide-right-content');
+        const aboutUsSection = document.querySelector('#AboutUs');
+
+        // Create an IntersectionObserver instance
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                // Check if the section is in the viewport
+                if (entry.isIntersecting) {
+                    // Add the animation classes after a 2-second delay
+                    setTimeout(function () {
+                        leftContent.classList.add('slide-in-left');
+                        rightContent.classList.add('slide-in-right');
+                    }, 500);
+                    // Stop observing after the animation is triggered
+                    observer.unobserve(aboutUsSection);
+                }
+            });
+        }, {
+            threshold: 0.3 // 30% of the section must be visible before triggering
+        });
+
+        // Start observing the About Us section
+        observer.observe(aboutUsSection);
+    });
+</script>
+
+</div>
+<!-- Our Services -->
+<!-- Our Services -->
+<div class="services-section">
+    <h2 class="section-title">  <i class="fas fa-info-circle" style="color: #17a2b8; font-size: 2.5rem; margin-right: 15px;"></i>Our Services</h2>
+    <div class="services-slider">
+        <div class="service-item">
+            <div class="service-image-wrapper">
+                <img src="/assets/img/loandimg.png" alt="Personal Loans" class="service-image">
+            </div>
+            <h3>  <i class="fas fa-user" style="color: #ffc107; font-size: 1.8rem; margin-right: 10px;"></i>Personal Loans</h3>
+            <div class="service-text-wrapper">
+              
+                <ul style="list-style: none; padding: 0; margin: 0; font-family: Arial, sans-serif;">
+                    <li style="margin-bottom: 10px; font-size: 1rem; color: #333; display: flex; align-items: center;">
+                        <i class="fas fa-check-circle" style="color: #28a745; margin-right: 10px; font-size: 1.2rem;"></i>
+                        Flexible loan amounts to fit your needs.
+                    </li>
+                    <li style="margin-bottom: 10px; font-size: 1rem; color: #333; display: flex; align-items: center;">
+                        <i class="fas fa-check-circle" style="color: #28a745; margin-right: 10px; font-size: 1.2rem;"></i>
+                        Competitive interest rates starting as low as 5%.
+                    </li>
+                    <li style="margin-bottom: 10px; font-size: 1rem; color: #333; display: flex; align-items: center;">
+                        <i class="fas fa-check-circle" style="color: #28a745; margin-right: 10px; font-size: 1.2rem;"></i>
+                        Quick and easy online application process.
+                    </li>
+                    <li style="margin-bottom: 10px; font-size: 1rem; color: #333; display: flex; align-items: center;">
+                        <i class="fas fa-check-circle" style="color: #28a745; margin-right: 10px; font-size: 1.2rem;"></i>
+                        No hidden fees and transparent terms.
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+        <div class="service-item service-item-reverse">
+            <div class="service-imag-wrapper">
+                <div class="service-image-wrapper">
+                    <img src="/assets/img/homel.png" alt="Home Loans" class="service-image">
+                </div>
+                <h3><i class="fas fa-home" style="color: #007bff; font-size: 1.8rem; margin-right: 10px;"></i>Home Loans</h3>
+               <div class="service-text-wrapper">
+                <ul style="list-style: none; padding: 0; margin: 0; font-family: Arial, sans-serif;">
+                    <li style="margin-bottom: 10px; font-size: 1rem; color: #333; display: flex; align-items: center;">
+                        <i class="fas fa-check-circle" style="color: #007bff; margin-right: 10px; font-size: 1.2rem;"></i>
+                        Customized home loan solutions tailored to your needs.
+                    </li>
+                    <li style="margin-bottom: 10px; font-size: 1rem; color: #333; display: flex; align-items: center;">
+                        <i class="fas fa-check-circle" style="color: #007bff; margin-right: 10px; font-size: 1.2rem;"></i>
+                        Fixed and variable interest rates for your convenience.
+                    </li>
+                    <li style="margin-bottom: 10px; font-size: 1rem; color: #333; display: flex; align-items: center;">
+                        <i class="fas fa-check-circle" style="color: #007bff; margin-right: 10px; font-size: 1.2rem;"></i>
+                        Streamlined approval process with expert assistance.
+                    </li>
+                    <li style="margin-bottom: 10px; font-size: 1rem; color: #333; display: flex; align-items: center;">
+                        <i class="fas fa-check-circle" style="color: #007bff; margin-right: 10px; font-size: 1.2rem;"></i>
+                        Support for first-time home buyers and refinancing options.
+                    </li>
+                </ul>
+                
+               </div>
+            </div>
+        
+        </div>
+        <div class="service-item">
+            <div class="service-image-wrapper">
+                <img src="/assets/img/car.png" alt="Car Loans" class="service-image">
+            </div>
+            <h3><i class="fas fa-car" style="color: #28a745; font-size: 1.8rem; margin-right: 10px;"></i> Car Loans</h3>
+            <div class="service-text-wrapper">
+                <ul style="list-style: none; padding: 0; margin: 0; font-family: Arial, sans-serif;">
+                    <li style="margin-bottom: 10px; font-size: 1rem; color: #333; display: flex; align-items: center;">
+                        <i class="fas fa-check-circle" style="color: #28a745; margin-right: 10px; font-size: 1.2rem;"></i>
+                        Affordable rates to drive the car of your dreams.
+                    </li>
+                    <li style="margin-bottom: 10px; font-size: 1rem; color: #333; display: flex; align-items: center;">
+                        <i class="fas fa-check-circle" style="color: #28a745; margin-right: 10px; font-size: 1.2rem;"></i>
+                        Fast approval and disbursal process.
+                    </li>
+                    <li style="margin-bottom: 10px; font-size: 1rem; color: #333; display: flex; align-items: center;">
+                        <i class="fas fa-check-circle" style="color: #28a745; margin-right: 10px; font-size: 1.2rem;"></i>
+                        Flexible repayment terms up to 7 years.
+                    </li>
+                    <li style="margin-bottom: 10px; font-size: 1rem; color: #333; display: flex; align-items: center;">
+                        <i class="fas fa-check-circle" style="color: #28a745; margin-right: 10px; font-size: 1.2rem;"></i>
+                        Transparent terms with no hidden charges.
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Customer Review Section -->
+<div class="customer-reviews-section" id="customerReviews">
+    <div class="container">
+        <h5 class="section-title"><i class="fas fa-quote-left" style="color: #ffc107; font-size: 2rem; margin-right: 15px;"></i>What Our Customers Say</h5>
+        <div class="customer-review-slider">
+            <div class="slider">
+                <div class="customer-review-box zoom-out-element">
+                    <div class="user-details">
+                        <div class="user-img">
+                            <img src="/assets/img/client3.jpg" alt="Sushant Verma">
+                        </div>
+                        <i class="fas fa-star review-icon"></i>
+                        <h3 class="nameofuser">Sushant Verma</h3>
+                        <p class="profession">Marvel Enterprises</p>
+                        <p class="user-text-thought">
+                            Great service and support. Highly recommend! The team was very responsive and ensured everything was delivered on time.
+                        </p>
+                    </div>
+                </div>
+                <div class="customer-review-box zoom-out-element">
+                    <div class="user-details">
+                        <div class="user-img">
+                            <img src="/assets/img/client2.jpg" alt="Another User">
+                        </div>
+                        <i class="fas fa-thumbs-up review-icon"></i>
+                        <h3 class="nameofuser">Another User</h3>
+                        <p class="profession">Zara Textile Company</p>
+                        <p class="user-text-thought">
+                            Fantastic experience, very satisfied! The quality of work exceeded our expectations, and the attention to detail was impressive.
+                        </p>
+                    </div>
+                </div>
+                <div class="customer-review-box zoom-out-element">
+                    <div class="user-details">
+                        <div class="user-img">
+                            <img src="/assets/img/client1.jpg" alt="Abinav Textile User">
+                        </div>
+                        <i class="fas fa-check-circle review-icon"></i>
+                        <h3 class="nameofuser">Abinav Textile User</h3>
+                        <p class="profession">Infosys</p>
+                        <p class="user-text-thought">
+                            Excellent quality and timely delivery! The team went above and beyond to ensure our requirements were met perfectly.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const elements = document.querySelectorAll('.zoom-out-element');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('zoom-out-3d-animation');
+                    observer.unobserve(entry.target); // Stop observing once the animation is triggered
+                }
+            });
+        }, {
+            threshold: 0.2 // Trigger the animation when 20% of the element is visible
+        });
+
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+    });
+</script>
+
+
+<!-- footer  -->
+<footer class="footer">
+    <section class="section">
+      <div class="connect">
+        <span>Get connected with us:</span>
+      </div>
+     
+    </section>
+
+    <section class="container">
+      <div class="row">
+        <div class="column">
+          <h6 class="title"><i class="fas fa-gem"></i> QuickLoan</h6>
+          <p>
+            We Help to Complete Your Dream. We Provide you
+            <span class="highlight-red">Trustable</span>,
+            <span class="highlight-info">Scalable</span>,
+            and
+            <span class="highlight-slateblue">Flexible</span>
+            Amount of Loan For Your Dream.
+          </p>
+        </div>
+        <div class="column">
+          
+        </div>
+
+        <div class="column">
+          <h6 class="title">Contact</h6>
+          <p id="contact-phone"><i class="fas fa-phone"></i> 35438459354</p>
+          <p id="contact-email"><i class="fas fa-envelope"></i> hubhamm@gmail.com</p>
+          <p id="contact-address"><i class="fas fa-home"></i> vashali nagar 203045 bloak R</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="copy">
+      <a href="#" class="link" id="footer-email">Worldpay472@gmail.com</a>
+    </div>
+  </footer>
+
+      <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Slick Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.partner-slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 7500,
+                arrows: true,
+                dots: true,
+                infinite: true,
+                speed: 500,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginButton = document.getElementById("loginButton");
+            const loginModal = new bootstrap.Modal(document.getElementById("loginModal"));
+    
+            loginButton.addEventListener("click", function () {
+                loginModal.show();
+            });
+        });
+    </script>
+    
+    <script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: true,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+        $(document).ready(function(){
+            $('.slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 7500
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+  const loginButton = document.getElementById("loginButton");
+  const loginModal = new bootstrap.Modal(document.getElementById("loginModal"));
+
+  loginButton.addEventListener("click", function () {
+    loginModal.show();
+  });
+});
+
+document.getElementById('registrationForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    // Clear previous error messages
+    document.querySelectorAll('.form-text.text-danger').forEach(elem => elem.textContent = '');
+
+    const phoneNumber = document.getElementById('phoneNumber').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const Username = document.getElementById('Username').value;
+    const income = document.getElementById('income').value;
+    const jobType = document.getElementById('jobType').value;
+    const city = document.getElementById('city').value;
+    const state = document.getElementById('state').value;
+
+    // Combine city and state into a single address
+    const address = `${city}, ${state}`;
+
+    // Basic validation
+    let isValid = true;
+
+    if (phoneNumber.length !== 10) {
+        document.getElementById('phoneNumberError').textContent = 'Phone number must be exactly 10 digits.';
+        isValid = false;
+    }
+
+    // Regex for validating email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+        isValid = false;
+    }
+
+    if (!phoneNumber || !email || !password || !Username || !income || !jobType || !city || !state) {
+        if (!phoneNumber) document.getElementById('phoneNumberError').textContent = 'Phone number is required.';
+        if (!email) document.getElementById('emailError').textContent = 'Email is required.';
+        if (!password) document.getElementById('passwordError').textContent = 'Password is required.';
+        if (!Username) document.getElementById('usernameError').textContent = 'Username is required.';
+        if (!income) document.getElementById('incomeError').textContent = 'Income is required.';
+        if (!jobType) document.getElementById('jobTypeError').textContent = 'Job type is required.';
+        if (!city) document.getElementById('cityError').textContent = 'City is required.';
+        if (!state) document.getElementById('stateError').textContent = 'State is required.';
+        isValid = false;
+    }
+
+    if (!isValid) return;
+
+    const data = { phoneNumber, email, password, income, jobType, address, Username };
+
+    try {
+        const response = await fetch('http://localhost:7500/back/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            window.localhost.href = '/Reg';
+        } else {
+            alert(`Registration failed: ${result.msg}`);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while registering. Please try again later.');
+    }
+});
+
+
+  document.getElementById("logoutBtn").addEventListener("click", function() {
+    // Trigger the logout route
+    window.localhost.href = "/logout";
+  });
+
+
+
+    </script>
+      <script>
+        // Data for Indian states and cities
+        const statesAndCities = {
+            'Andhra Pradesh': [ 'Visakhapatnam', 
+    'Vijayawada', 
+    'Guntur', 
+    'Tirupati', 
+    'Kurnool', 
+    'Nellore', 
+    'Rajahmundry', 
+    'Kakinada', 
+    'Anantapur', 
+    'Eluru', 
+    'Kadapa', 
+    'Chittoor', 
+    'Ongole', 
+    'Srikakulam', 
+    'Machilipatnam', 
+    'Vizianagaram', 
+    'Proddatur', 
+    'Hindupur', 
+    'Bhimavaram', 
+    'Tenali', 
+    'Madanapalle', 
+    'Nandyal'],
+            'Arunachal Pradesh': [   'Itanagar',
+    'Tawang',
+    'Ziro',
+    'Pasighat',
+    'Bomdila',
+    'Aalo',
+    'Tezu',
+    'Roing',
+    'Naharlagun',
+    'Khonsa',
+    'Changlang',
+    'Yingkiong',
+    'Seppa',
+    'Daporijo',
+    'Namsai',
+    'Basar',
+    'Anini',
+    'Dirang',
+    'Mechuka',
+    'Longding'],
+            'Assam': [  'Guwahati',
+    'Silchar',
+    'Dibrugarh',
+    'Jorhat',
+    'Nagaon',
+    'Tinsukia',
+    'Bongaigaon',
+    'Tezpur',
+    'Hailakandi',
+    'Karimganj',
+    'Dhemaji',
+    'Barpeta',
+    'Kokrajhar',
+    'Sonitpur',
+    'Lakhimpur',
+    'Bilasipara'],
+            'Bihar': [  'Patna',
+    'Gaya',
+    'Bhagalpur',
+    'Muzaffarpur',
+    'Darbhanga',
+    'Purnia',
+    'Begusarai',
+    'Katihar',
+    'Samastipur',
+    'Sasaram',
+    'Arrah',
+    'Munger',
+    'Nalanda',
+    'Bettiah',
+    'Chhapra',
+    'Kishanganj'],
+            'Chhattisgarh': [ 'Raipur',
+    'Bilaspur',
+    'Korba',
+    'Durg',
+    'Raigarh',
+    'Jagdalpur',
+    'Ambikapur',
+    'JanJGir-Champa',
+    'Kanker',
+    'Mahasamund',
+    'Rajnandgaon',
+    'Bemetara',
+    'Surguja',
+    'Janjgir',
+    'Koriya',
+    'Baloda Bazar'],
+            'Goa': [ 'Panaji',
+    'Margao',
+    'Vasco da Gama',
+    'Mapusa',
+    'Ponda',
+    'Cortalim',
+    'Quepem',
+    'Saligao',
+    'Bicholim',
+    'Canacona'],
+            'Gujarat': ['Ahmedabad',
+    'Surat',
+    'Vadodara',
+    'Rajkot',
+    'Bhavnagar',
+    'Jamnagar',
+    'Junagadh',
+    'Gandhinagar',
+    'Anand',
+    'Nadiad',
+    'Navsari',
+    'Morbi',
+    'Mehsana',
+    'Bharuch',
+    'Vapi',
+    'Patan',
+    'Porbandar',
+    'Surendranagar',
+    'Valsad',
+    'Gandhidham',
+    'Bhuj',
+    'Godhra',
+    'Dahod',
+    'Botad',
+    'Amreli',
+    'Modasa',
+    'Veraval',
+    'Palanpur',
+    'Himatnagar',
+    'Kalol'],
+            'Haryana': ['Chandigarh',
+    'Gurgaon',
+    'Faridabad',
+    'Ambala',
+    'Panipat',
+    'Karnal',
+    'Sonipat',
+    'Rohtak',
+    'Hisar',
+    'Yamunanagar',
+    'Panchkula',
+    'Bhiwani',
+    'Rewari',
+    'Sirsa'],
+            'Himachal Pradesh': [ 'Ranchi',
+    'Jamshedpur',
+    'Dhanbad',
+    'Bokaro',
+    'Hazaribagh',
+    'Deoghar',
+    'Giridih',
+    'Ramgarh',
+    'Phusro',
+    'Chatra',
+    'Gumla',
+    'Simdega'],
+            'Jharkhand': [ 'Ranchi',
+    'Jamshedpur',
+    'Dhanbad',
+    'Bokaro',
+    'Hazaribagh',
+    'Deoghar',
+    'Giridih',
+    'Ramgarh',
+    'Phusro',
+    'Chatra',
+    'Gumla',
+    'Simdega'],
+            'Karnataka': [  'Bengaluru',
+    'Mysuru',
+    'Hubli',
+    'Davanagere',
+    'Mangalore',
+    'Belgaum',
+    'Gulbarga',
+    'Ballari',
+    'Bijapur',
+    'Shivamogga',
+    'Tumkur',
+    'Raichur',
+    'Bidar',
+    'Hassan',
+    'Udupi'],
+            'Kerala': [   'Thiruvananthapuram',
+    'Kochi',
+    'Kozhikode',
+    'Palakkad',
+    'Thrissur',
+    'Alappuzha',
+    'Kollam',
+    'Kannur',
+    'Kottayam',
+    'Pathanamthitta',
+    'Malappuram',
+    'Idukki'],
+            'Madhya Pradesh': [    'Bhopal',
+    'Indore',
+    'Gwalior',
+    'Jabalpur',
+    'Ujjain',
+    'Sagar',
+    'Rewa',
+    'Satna',
+    'Ratlam',
+    'Katni',
+    'Dewas',
+    'Chhindwara',
+    'Morena',
+    'Khargone',
+    'Khandwa',
+    'Vidisha',
+    'Chhatarpur',
+    'Hoshangabad',
+    'Itarsi',
+    'Sehore',
+    'Betul',
+    'Mandsaur',
+    'Neemuch',
+    'Shivpuri',
+    'Damoh',
+    'Pithampur',
+    'Mhow',
+    'Seoni',
+    'Balaghat',
+    'Shahdol',
+    'Mandla',
+    'Narsinghpur',
+    'Singrauli',
+    'Umaria',
+    'Dindori',
+    'Sidhi',
+    'Anuppur',
+    'Sheopur',
+    'Guna',
+    'Ashok Nagar',
+    'Bhind',
+    'Datia',
+    'Tikamgarh',
+    'Rajgarh',
+    'Raisen',
+    'Harda',
+    'Barwani',
+    'Jhabua',
+    'Alirajpur',
+    'Dhar',
+    'Shajapur',
+    'Agar Malwa'],
+            'Maharashtra': [  'Mumbai',
+    'Pune',
+    'Nagpur',
+    'Nashik',
+    'Thane',
+    'Aurangabad',
+    'Solapur',
+    'Amravati',
+    'Kolhapur',
+    'Akola',
+    'Latur',
+    'Jalgaon',
+    'Dhule',
+    'Sangli'],
+            'Manipur': ['Imphal',
+    'Thoubal',
+    'Churachandpur',
+    'Bishnupur',
+    'Kakching',
+    'Ukhrul',
+    'Senapati',
+    'Tamenglong'],
+            'Meghalaya': [ 'Shillong',
+    'Tura',
+    'Nongstoin',
+    'Jowai',
+    'Baghmara',
+    'Williamnagar'],
+            'Mizoram': [ 'Aizawl',
+    'Lunglei',
+    'Saiha',
+    'Champhai',
+    'Serchhip',
+    'Kolasib'],
+            'Nagaland': [ 'Kohima',
+    'Dimapur',
+    'Mokokchung',
+    'Tuensang',
+    'Wokha',
+    'Mon',
+    'Zunheboto'],
+            'Odisha': [ 'Bhubaneswar',
+    'Cuttack',
+    'Rourkela',
+    'Berhampur',
+    'Sambalpur',
+    'Balasore',
+    'Puri',
+    'Bhadrak',
+    'Baripada',
+    'Angul',
+    'Jeypore',
+    'Balangir'],
+            'Punjab': [ 'Chandigarh',
+    'Amritsar',
+    'Ludhiana',
+    'Jalandhar',
+    'Patiala',
+    'Bathinda',
+    'Hoshiarpur',
+    'Pathankot',
+    'Mohali',
+    'Moga',
+    'Phagwara',
+    'Firozpur'],
+            'Rajasthan': [ 'Jaipur',
+    'Jodhpur',
+    'Udaipur',
+    'Kota',
+    'Bikaner',
+    'Ajmer',
+    'Alwar',
+    'Bharatpur',
+    'Pali',
+    'Bhilwara',
+    'Sikar',
+    'Tonk',
+    'Chittorgarh',
+    'Sri Ganganagar',
+    'Jaisalmer',
+    'Barmer',
+    'Bundi',
+    'Nagaur',
+    'Jhunjhunu',
+    'Jhalawar',
+    'Banswara',
+    'Sawai Madhopur',
+    'Dholpur',
+    'Karauli',
+    'Churu',
+    'Hanumangarh',
+    'Dausa',
+    'Rajsamand',
+    'Pratapgarh'],
+            'Sikkim': [ 'Gangtok',
+    'Namchi',
+    'Gyalshing',
+    'Mangan',
+    'Rangpo',
+    'Jorethang'],
+            'Tamil Nadu': ['Chennai',
+    'Coimbatore',
+    'Madurai',
+    'Tiruchirappalli',
+    'Salem',
+    'Tirunelveli',
+    'Erode',
+    'Vellore',
+    'Thoothukudi',
+    'Dindigul',
+    'Thanjavur',
+    'Cuddalore',
+    'Nagercoil',
+    'Kanchipuram',
+    'Karur',
+    'Udhagamandalam (Ooty)',
+    'Sivakasi'],
+            'Telangana': [  'Hyderabad',
+    'Warangal',
+    'Nizamabad',
+    'Karimnagar',
+    'Khammam',
+    'Ramagundam',
+    'Mahbubnagar',
+    'Nalgonda',
+    'Adilabad',
+    'Suryapet',
+    'Miryalaguda',
+    'Medak'],
+            'Tripura': [ 'Agartala',
+    'Udaipur',
+    'Dharmanagar',
+    'Kailashahar',
+    'Belonia',
+    'Ambassa'],
+            'Uttar Pradesh': [  'Lucknow',
+    'Kanpur',
+    'Ghaziabad',
+    'Agra',
+    'Meerut',
+    'Varanasi',
+    'Prayagraj',
+    'Noida',
+    'Aligarh',
+    'Moradabad',
+    'Bareilly',
+    'Saharanpur',
+    'Gorakhpur',
+    'Firozabad',
+    'Jhansi',
+    'Muzaffarnagar',
+    'Mathura',
+    'Rampur',
+    'Shahjahanpur',
+    'Faizabad',
+    'Farrukhabad',
+    'Mirzapur',
+    'Raebareli',
+    'Sultanpur',
+    'Bijnor',
+    'Hathras',
+    'Unnao',
+    'Lakhimpur',
+    'Sitapur',
+    'Etawah',
+    'Deoria',
+    'Etah',
+    'Mainpuri',
+    'Azamgarh',
+    'Jaunpur',
+    'Ballia',
+    'Ghazipur',
+    'Bulandshahr',
+    'Amroha',
+    'Mau',
+    'Hapur'],
+            'Uttarakhand': [ 'Dehradun',
+    'Haridwar',
+    'Nainital',
+    'Rishikesh',
+    'Haldwani',
+    'Roorkee',
+    'Almora',
+    'Pithoragarh',
+    'Rudrapur',
+    'Kashipur',
+    'Mussoorie',
+    'Tehri',
+    'Bageshwar',
+    'Champawat',
+    'Lansdowne',
+    'Uttarkashi'],
+            'West Bengal': [  'Kolkata',
+    'Siliguri',
+    'Asansol',
+    'Howrah',
+    'Durgapur',
+    'Darjeeling',
+    'Jalpaiguri',
+    'Kharagpur',
+    'Bardhaman',
+    'Malda',
+    'Haldia',
+    'Bankura',
+    'Raiganj',
+    'Cooch Behar',
+    'Nadia',
+    'Purulia',
+    'Alipurduar',
+    'Midnapore',
+    'Hooghly',
+    'Krishnanagar']
+        };
+
+        // Function to populate state dropdown
+        function populateStates() {
+            const stateSelect = document.getElementById('state');
+            Object.keys(statesAndCities).forEach(state => {
+                const option = document.createElement('option');
+                option.value = state;
+                option.textContent = state;
+                stateSelect.appendChild(option);
+            });
+        }
+
+        // Function to populate city dropdown based on selected state
+        function populateCities(state) {
+            const citySelect = document.getElementById('city');
+            citySelect.innerHTML = '<option value="">Select your city</option>'; // Clear previous options
+            if (state && statesAndCities[state]) {
+                statesAndCities[state].forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city;
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+                citySelect.disabled = false;
+            } else {
+                citySelect.disabled = true;
+            }
+        }
+
+        // Event listener for state dropdown change
+        document.getElementById('state').addEventListener('change', (event) => {
+            const selectedState = event.target.value;
+            populateCities(selectedState);
+        });
+
+        // Initialize state dropdown on page load
+        window.onload = populateStates;
+        document.addEventListener("DOMContentLoaded", function() {
+    // Get the URL parameters
+    // const params = new URLSearchParams(window.localhost.search);
+    // alert(params)
+
+    // // Check if the 'register' parameter is present and true
+    // if (params.get('register') === 'true') {
+        // Use Bootstrap's modal method to show the modal
+        $('#loginModal').modal('show');
+    // }
+});
+async function fetchLoanType() {
+    try {
+        const response = await fetch('http://localhost:7500/back/fetchCompanyProfile');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        // Update the footer with the company profile information
+        updateFooterWithProfile(data);
+        
+    } catch (error) {
+        console.error('Error fetching loan types:', error);
+    }
+}
+
+// Function to update the footer with company profile information
+function updateFooterWithProfile(data) {
+    if (data.success && data.data) {
+        const profile = data.data;
+        
+        document.getElementById('contact-phone').innerHTML = `<i class="fas fa-phone"></i> ${profile.contactNo}`;
+        document.getElementById('contact-email').innerHTML = `<i class="fas fa-envelope"></i> ${profile.email}`;
+        document.getElementById('contact-address').innerHTML = `<i class="fas fa-home"></i> ${profile.address}`;
+        document.getElementById('footer-email').textContent = profile.email;
+        document.getElementById('footer-email').href = `mailto:${profile.email}`;
+    } else {
+        console.error("Failed to fetch profile data.");
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchLoanType();
+});
+    </script>
+    <script>
+$(document).ready(function(){
+    $('.services-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        dots: true,
+        arrows: true,
+        infinite: true, // Ensures the slider loops continuously
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true
+                }
+            }
+        ]
+    });
+});
+</script>
+
+        </script>
+        
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+  
+</body>
+</html>

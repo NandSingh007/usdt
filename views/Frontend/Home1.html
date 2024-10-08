@@ -1,0 +1,219 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pursa Exchange - Your trusted platform for currency exchange services, providing mobile and online currency exchange options.">
+  <meta name="keywords" content="Pursa Exchange, Currency Exchange, Mobile Currency Exchange, Online Currency Exchange">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Pursa Exchange Team">
+
+  <!-- Open Graph for social media sharing -->
+  <meta property="og:title" content="Pursa Exchange - Trusted Currency Exchange" />
+  <meta property="og:description" content="Fast, reliable currency exchange services. Exchange currencies on the go with Pursa Exchange." />
+  <meta property="og:image" content="/assets/img/bglogo5.png" />
+  <meta property="og:url" content="http://localhost:7500" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter meta tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pursa Exchange - Currency Exchange" />
+  <meta name="twitter:description" content="Fast and secure mobile currency exchange with Pursa." />
+  <meta name="twitter:image" content="/assets/img/bglogo5.png" />
+
+  <title>Pursa Exchange - Currency Exchange</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMHT6TfHEN5c6F12J8M3yUuHJgXk/5ZTBO7lw1" crossorigin="anonymous">
+  <link rel="icon" href="assets/img/1001.png" type="image/x-icon">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="Home1.css">
+
+  <style>
+    /* Container and Background */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden; /* Prevent scrolling */
+    }
+    
+    .container {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      border: 5px solid #ffffff;
+      box-sizing: border-box;
+      padding: 10px;
+      border-radius: 15px;
+      background-color: #000;
+    }
+   /* Container with Blue, Black, and Silver Gradient */
+.background-gradient {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-image: url('/assets/img/blu2.avif'); /* Replace with your image path */
+  background-size: cover; /* Ensures the image covers the container */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: backgroundAnimation 5s ease-in-out infinite;
+  border-radius: 10px;
+}
+
+/* Icon Styling with Black and Blue */
+.icon-container {
+  z-index: 1;
+}
+
+.mobile-icon {
+  color: #C0C0C0; /* Silver for the icon */
+  font-size: 100px;
+  animation: iconPulse 2s infinite;
+  border: 3px solid #C0C0C0; /* Silver Border */
+  border-radius: 50%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+/* Text Section */
+.text-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Heading with a Blue Glow */
+.colorful-heading {
+  font-size: 3rem;
+  font-weight: bold;
+  
+ color: #ffe600;; /* Bright Blue */
+  background: none; /* Removed colorful gradient */
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 8px rgba(30, 144, 255, 0.8); /* Blue glow effect */
+}
+
+/* Simple Text in Silver */
+.simple-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff; /* Silver text */
+  opacity: 0.9;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Background Animation for Blue & Black */
+
+/* Icon Pulse Animation */
+@keyframes iconPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      .colorful-heading {
+        font-size: 2.2rem;
+      }
+    
+      .simple-text {
+        font-size: 1rem;
+      }
+    
+      .mobile-icon {
+        font-size: 80px;
+        padding: 15px;
+      }
+
+      .icon-container img {
+        width: 80%; /* Adjust logo size on mobile */
+        max-width: 150px; /* Set a max width for logo */
+      }
+    }
+
+    .svg-icon-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+    
+    .svg-icon-container svg {
+      fill: #e1ff00;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="background-gradient">
+      <!-- Logo Image -->
+      <div class="icon-container" style="text-align: center;">
+        <img src="/assets/img/1005.png" alt="Pursa Exchange Logo" width="40%" aria-label="Pursa Exchange Logo" />
+      </div>
+
+      <!-- Text Section -->
+      <div class="text-section">
+        <h1 class="colorful-heading">Bitcoin Token USDT</h1>
+        <p class="simple-text">Secure & Reliable Currency Exchange</p>
+      </div>
+      <!-- SVG Icon -->
+      <div class="svg-icon-container">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="50"   
+          height="50" 
+          fill="currentColor"
+          class="bi bi-currency-exchange"
+          viewBox="0 0 16 16"
+          aria-label="Currency Exchange Icon"
+        >
+          <path d="M8 1a.5.5 0 0 0-.5.5v1H6.5a.5.5 0 0 0 0 1h1v1.5a.5.5 0 0 0 1 0V3.5h1a.5.5 0 0 0 0-1H8.5V1.5A.5.5 0 0 0 8 1zM1.5 7a.5.5 0 0 0 0 1H3a.5.5 0 0 0 0-1H1.5zM15.5 7H14a.5.5 0 0 0 0 1h1.5a.5.5 0 0 0 0-1zM8 15a.5.5 0 0 0 .5-.5v-1h1a.5.5 0 0 0 0-1h-1v-1.5a.5.5 0 0 0-1 0V13h-1a.5.5 0 0 0 0 1h1.5v1.5A.5.5 0 0 0 8 15zM1 8a7 7 0 0 1 14 0A7 7 0 0 1 1 8zm8-3a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1.5a.5.5 0 0 0 1 0V6.5h1a.5.5 0 0 0 0-1H9.5V4.5A.5.5 0 0 0 9 4z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <!-- Auto-Redirect Script -->
+  <script>
+    // Redirect to /home2 after 5 seconds (5000 milliseconds)
+    setTimeout(() => {
+      window.location.href = "/home2";
+    }, 4222000);
+    
+    const checkTokenAndRedirect = () => {
+        const token = localStorage.getItem('jwtToken1');
+        console.log(token)
+        if (!token) {
+            window.location.href = "/";
+        }
+    };
+
+    // Call the token check on page load
+    window.onload = checkTokenAndRedirect;
+  </script>
+</body>
+</html>

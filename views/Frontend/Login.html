@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="icon" href="assets/img/chotalogo.png" type="image/x-icon"> <!-- Change this to your favicon path -->
+
+  <link rel="stylesheet" href="Login.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <style>
+        /* src/components/Login/Login.css */
+
+/* Import Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap");
+
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Container Styling */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('/assets/img/log.jpg'); /* Replace with your image path */
+  background-size: cover; /* Ensures the image covers the container */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  padding: 20px;
+}
+
+/* Form Styling */
+.login-form {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  width: 100%;
+  max-width: 400px;
+  color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.login-form:hover {
+  transform: translateY(-10px);
+}
+
+/* Form Title */
+.form-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #ffd700; /* Golden color for title */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Form Group */
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Icons */
+.form-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #ffd700; /* Golden color for icons */
+  font-size: 1.2rem;
+}
+
+/* Input Fields */
+.login-form input {
+  width: 100%;
+  padding: 12px 12px 12px 12px; /* Left padding for icon */
+  border: none;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-form input::placeholder {
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+/* Input Focus */
+.login-form input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.7); /* Golden glow */
+}
+
+/* Error States */
+.error-message {
+  color: #ff4b2b; /* Red color for errors */
+  font-size: 0.9rem;
+  margin-top: -15px;
+  margin-bottom: 10px;
+  display: block;
+  padding-left: 40px; /* Align with input field */
+}
+
+/* Submit Button */
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  border: none;
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 70, 108, 0.6); /* Glow effect */
+}
+
+.button-icon {
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-form {
+    padding: 30px 20px;
+  }
+
+  .form-title {
+    font-size: 1.8rem;
+  }
+
+  .form-icon {
+    font-size: 1rem;
+  }
+
+  .submit-button {
+    font-size: 0.9rem;
+  }
+
+  .button-icon {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form {
+    padding: 20px 15px;
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+  }
+
+  .form-icon {
+    font-size: 0.9rem;
+  }
+
+  .submit-button {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+
+  .button-icon {
+    font-size: 0.8rem;
+  }
+}
+.register-button {
+  background-color: transparent; /* No background */
+  color: rgb(20, 59, 255); /* Blue text color */
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  background-color: #ff416d00;
+  font-size: 18px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 25px; /* Slightly rounded corners */
+  transition: color 0.3s ease, border-color 0.3s ease; /* Smooth color transition */
+}
+
+.register-button:hover {
+  color: white; /* Change text color on hover */
+  background-color: blue; /* Blue background on hover */
+  border-color: blue; /* Maintain border color */
+}
+.otp-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  .otp-input {
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    text-align: center;
+    margin: 5px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+  }
+
+  .otp-input:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+/* 
+  .submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  } */
+
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+    </style>
+  <div class="login-container">
+   
+    <div class="login-form">
+      <h3 style="text-align: center;"> <img src="/assets/img/1005.png" style="text-align: center;width:40%" ></h3>
+      <h2 class="form-title">Login</h2>
+
+      <!-- Step 1: Enter Email -->
+      <form id="step1-form" onsubmit="handleSendOTP(event)">
+        <div class="form-group">
+          <i class="fas fa-envelope form-icon"></i>
+          <input type="email" id="email" placeholder="Email" required />
+        </div>
+        <span id="error-message" class="error-message"></span>
+        <button type="submit" class="submit-button" id="send-otp-button">
+          <i class="fas fa-paper-plane button-icon"></i> Send OTP
+        </button>
+      </form>
+
+      <!-- Step 2: Enter OTP -->
+      <form id="step2-form" onsubmit="handleVerifyOTP(event)" style="display: none;">
+        <div class="otp-container">
+          <input type="number" id="otp1" class="otp-input" maxlength="1" oninput="moveToNext(this, 'otp2')" required />
+          <input type="number" id="otp2" class="otp-input" maxlength="1" oninput="moveToNext(this, 'otp3')" required />
+          <input type="number" id="otp3" class="otp-input" maxlength="1" oninput="moveToNext(this, 'otp4')" required />
+          <input type="number" id="otp4" class="otp-input" maxlength="1" oninput="moveToNext(this, 'otp5')" required />
+          <input type="number" id="otp5" class="otp-input" maxlength="1" oninput="moveToNext(this, 'otp6')" required />
+          <input type="number" id="otp6" class="otp-input" maxlength="1" oninput="moveToNext(this, '')" required />
+        </div>
+        <span id="otp-error-message" class="error-message"></span>
+        <button type="submit" class="submit-button" id="verify-otp-button">
+          <i class="fas fa-paper-plane button-icon"></i> Verify OTP
+        </button>
+      </form>
+      
+      <!-- Registration Button -->
+      
+    <p style="padding: 0px; margin: 0px; font-size: 15px; font-family: 'Times New Roman', Times, serif;"> Please first<button class="register-button" onclick="handleRegister()">
+      <i class="fas fa-user-plus button-icon"></i> Register
+    </button></p>
+    </div>
+  </div>
+
+  <script>
+    // Initialize emailjs
+    emailjs.init("j3YiNF2YMhWKlEpGs");
+
+    const step1Form = document.getElementById('step1-form');
+    const step2Form = document.getElementById('step2-form');
+    const sendOtpButton = document.getElementById('send-otp-button');
+    const verifyOtpButton = document.getElementById('verify-otp-button');
+    const errorMessage = document.getElementById('error-message');
+    const otpErrorMessage = document.getElementById('otp-error-message');
+
+    // Check if token is available and redirect to Home1 page
+    const checkTokenAndRedirect = () => {
+        const token = localStorage.getItem('jwtToken1');
+        // console.log(token)
+        if (token) {
+            window.location.href = "/Home1";
+        }
+    };
+
+    // Call the token check on page load
+    window.onload = checkTokenAndRedirect;
+
+    // Function to handle sending OTP
+    function handleSendOTP(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      errorMessage.textContent = "";
+
+      // Basic email validation
+      const emailRegex = /\S+@\S+\.\S+/;
+      if (!email || !emailRegex.test(email)) {
+        errorMessage.textContent = "Please enter a valid email address.";
+        return;
+      }
+
+      sendOtpButton.textContent = "Sending...";
+      axios.post('http://localhost:7500/back/send-otp2', { email })
+        .then(response => {
+          if (response.status === 200) {
+            const { name, email: userEmail, otp, token } = response.data;
+            localStorage.setItem('jwtToken', token);
+            sendOtpEmail(name, userEmail, otp);
+            // alert(`OTP has been sent to ${userEmail}.`);
+            step1Form.style.display = 'none';
+            step2Form.style.display = 'block';
+          }
+        })
+        .catch(err => {
+          errorMessage.textContent = "Failed to send OTP. Please try again.";
+        })
+        .finally(() => {
+          sendOtpButton.textContent = "Send OTP";
+        });
+    }
+
+    // Function to send OTP via email using emailjs
+    function sendOtpEmail(name, email, otp) {
+      emailjs.send("service_onpyvfa", "template_yqwex1h", {
+        to_name: name,
+        from_name: "xchange",
+        to_Otp: otp,
+        to_email: email
+      });
+    }
+
+    // Function to handle OTP verification
+ 
+
+    // Function to handle registration redirection
+    function handleRegister() {
+      window.location.href = "/Registration";
+    }
+</script>
+
+
+<script>
+ // Function to move focus to the next input box when a digit is entered
+function moveToNext(current, nextFieldId) {
+  if (current.value.length === 1 && nextFieldId !== '') {
+    document.getElementById(nextFieldId).focus();
+  }
+}
+
+// Function to handle OTP verification
+function handleVerifyOTP(event) {
+  event.preventDefault();
+
+  // Collect the OTP digits and concatenate into a string
+  let otp = '';
+  for (let i = 1; i <= 6; i++) {
+    otp += document.getElementById('otp' + i).value.toString(); // Convert number to string
+  }
+
+  const otpErrorMessage = document.getElementById('otp-error-message');
+  const verifyOtpButton = document.getElementById('verify-otp-button');
+  
+  otpErrorMessage.textContent = "";  // Clear previous error messages
+
+  // Validate OTP (should be exactly 6 digits)
+  if (otp.length !== 6) {
+    otpErrorMessage.textContent = "Please enter a valid 6-digit OTP.";
+    return;
+  }
+
+  // Change button text to show verification in progress
+  verifyOtpButton.textContent = "Verifying...";
+
+  // Get the JWT token from local storage
+  const token = localStorage.getItem('jwtToken');
+  
+  // Make POST request to verify OTP
+  axios.post('http://localhost:7500/back/verify-otp2', { token, otp })
+    .then(response => {
+      // On successful verification, store new token and redirect
+      localStorage.setItem('jwtToken1', response.data.token);
+      window.location.href = "/Home1"; // Redirect to Home1 on success
+    })
+    .catch(err => {
+      // Handle errors
+      otpErrorMessage.textContent = "Failed to verify OTP. Please try again.";
+    })
+    .finally(() => {
+      // Restore the button text after verification attempt
+      verifyOtpButton.textContent = "Verify OTP";
+    });
+}
+
+</script>
+
+</body>
+</html>

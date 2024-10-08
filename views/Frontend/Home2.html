@@ -1,0 +1,1042 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pursa Exchange - Currency Exchange services with safe and secure transactions.">
+  <meta name="keywords" content="Pursa Exchange, Currency Exchange, USDT, Safe Wallet">
+  <meta name="robots" content="index, follow">
+  <title>Pursa Exchange - Home 2</title>
+  <link rel="icon" href="assets/img/1001.png" type="image/x-icon"> <!-- Change this to your favicon path -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <!-- Link to Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="Home2.css">
+</head>
+<body>
+  
+<style>
+  /* src/Home2.css */
+
+/* Reset default margins and paddings */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+/* Container Styling */
+.home2-container {
+position: relative;
+min-height: 100vh;
+width: 100vw;
+
+/* Specified Gradient Background */
+/* background: linear-gradient(135deg, #642b73, #c6426e); Rich gradient */
+background-image: url('/assets/img/blue3.jpg'); /* Replace with your image path */
+  background-size: cover; /* Ensures the image covers the container */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+overflow: hidden;
+
+font-family: "Montserrat", Tahoma, Geneva, Verdana, sans-serif;
+color: #ffffff;
+
+/* Smooth Transition for Background */
+transition: background 0.5s ease-in-out;
+}
+
+/* Background Logo */
+.background-logo {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 300px; /* Adjust size as needed */
+opacity: 0.1; /* Make it subtle */
+z-index: 0;
+}
+
+/* Navbar Styling */
+.navbar {
+width: 100%;
+padding: 20px 60px;
+display: flex;
+justify-content: right;
+align-items: center;
+z-index: 2;
+
+/* Drop Shadow for Navbar */
+box-shadow: 0 4px 6px rgba(214, 212, 212, 0.3);
+
+/* Smooth Fade-In Animation */
+animation: fadeInDown 1s ease forwards;
+}
+
+.navbar-title {
+font-size: 2rem;
+font-weight: 700;
+color: #ffffff;
+
+text-transform: uppercase;
+letter-spacing: 3px;
+
+/* Text Shadow for Better Readability */
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+/* Transition for Hover Effect */
+transition: color 0.3s ease;
+}
+
+.navbar-title:hover {
+color: #ffdd57; /* Accent Color on Hover */
+}
+
+/* Main Content Styling */
+/* Main Content Styling */
+
+
+.main-content {
+  z-index: 1;
+  text-align: center;
+  background-image: url('/assets/img/blu2.avif'); /* Replace with your image path */
+  background-size: cover; /* Ensures the image covers the container */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  padding: 30px;
+  max-width: 500px;
+  margin: auto;
+  /* background: #0e050733; */
+  border-radius: 20px;
+  border-top: 2px solid #0000009c;
+  border-left: 2px solid #0000009c;
+  box-shadow: 9px 9px 6px 1px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.main-content:hover {
+  transform: scale(1.05);
+  /* opacity: .8; */
+  background: rgba(255, 255, 255, 0.038); 
+}
+
+
+.exchange-title {
+font-family: "Cinzel", serif;
+font-size: 3rem;
+font-weight: 700;
+color: #ffd700;
+margin-bottom: 20px;
+
+/* Text Shadow for more dramatic effect */
+text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+
+/* Subtle text animation */
+animation: fadeInUp 1.5s ease forwards;
+}
+
+.exchange-rate {
+font-size: 1.8rem;
+color: #f0f0f0;
+margin-bottom: 30px;
+
+/* Animation delay for staggered effect */
+animation: fadeInUp 2s ease forwards;
+}
+
+/* Button Styling */
+.sell-button {
+padding: 15px 40px;
+font-size: 1.2rem;
+font-weight: 700;
+color: #ffffff;
+
+/* Gradient Button */
+background: linear-gradient(45deg, #ff416c, #ff4b2b);
+border: none;
+border-radius: 30px;
+cursor: pointer;
+
+/* Box-shadow for hover glow effect */
+box-shadow: 0 0 15px rgba(255, 70, 108, 0.6);
+transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.sell-button:hover {
+transform: scale(1.05);
+background: linear-gradient(45deg, #ff4b2b, #ff416c);
+}
+
+.button-icon {
+margin-right: 10px;
+font-size: 1.5rem;
+color: #ffffff;
+}
+
+/* Footer Styling */
+.footer {
+width: 100%;
+padding: 15px 0;
+text-align: center;
+font-size: 1rem;
+color: #dddddd;
+z-index: 2;
+
+/* Top Border for Separation */
+border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+/* Smooth Fade-In Animation */
+animation: fadeInUp 3s ease forwards;
+
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.footer p {
+display: flex;
+align-items: center;
+padding: 0px 6px;
+justify-content: center;
+}
+
+.footer-icon {
+margin-right: 8px;
+font-size: 1.2rem;
+color: #ffd700;
+}
+
+/* Icon Styling */
+.icon {
+margin-right: 8px;
+font-size: 2rem; /* Adjust size as needed */
+color: #ffd700; /* Golden color for icons */
+}
+
+/* Animations */
+
+/* Float Animation for Background Icon */
+@keyframes float {
+0% {
+transform: translate(-50%, -50%) rotate(-15deg) translateY(0px);
+}
+50% {
+transform: translate(-50%, -50%) rotate(-15deg) translateY(-30px);
+}
+100% {
+transform: translate(-50%, -50%) rotate(-15deg) translateY(0px);
+}
+}
+
+/* Fade In Down for Navbar */
+@keyframes fadeInDown {
+from {
+opacity: 0;
+transform: translateY(-30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* Fade In Up for Main Content and Others */
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.background-logo {
+width: 200px;
+opacity: 0.1;
+}
+
+.navbar {
+padding: 15px 30px;
+}
+
+.navbar-title {
+font-size: 1.5rem;
+}
+
+.exchange-title {
+font-size: 2.3rem;
+}
+
+.exchange-rate {
+font-size: 1.5rem;
+}
+
+.sell-button {
+padding: 12px 30px;
+font-size: 1rem;
+}
+
+.icon {
+font-size: 1.5rem; /* Adjust icon size for smaller screens */
+}
+
+.button-icon {
+font-size: 1.2rem;
+}
+}
+
+@media (max-width: 480px) {
+.background-logo {
+width: 150px;
+opacity: 0.1;
+}
+
+.navbar {
+padding: 10px 20px;
+}
+
+.navbar-title {
+font-size: 1.2rem;
+}
+
+.exchange-title {
+font-size: 1.3rem;
+}
+
+.exchange-rate {
+font-size: 1rem;
+}
+
+.sell-button {
+padding: 10px 25px;
+font-size: 0.9rem;
+}
+
+.icon {
+font-size: 1.2rem; /* Adjust icon size for mobile */
+}
+
+.button-icon {
+font-size: 1rem;
+}
+}
+.addback {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ffd700;
+    color: black;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+/* Add hover effect */
+.addback:hover {
+    background-color: #ffc107; /* Darker shade on hover */
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+    .addback {
+        padding: 8px 15px; /* Reduce padding */
+        font-size: 14px; /* Smaller font size for mobile */
+        border-radius: 4px; /* Adjust border-radius */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+    }
+}
+
+@media (max-width: 480px) {
+    .addback {
+        padding: 6px 12px; /* Further reduce padding for smaller screens */
+        font-size: 12px; /* Even smaller font size */
+        margin-bottom: 15px;
+    }
+}
+
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1323233; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.8); /* Darker black with opacity */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+          background: linear-gradient(to bottom right, #19191b, #363535);  /* Gold to Black gradient */
+          /* Attractive vibrant gradient background for modal */
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%; /* Responsive width */
+            max-width: 500px; /* Max width for modal */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.4s; /* Fade in animation */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .close {
+            color: #fff;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ffeb3b; /* Yellow on hover */
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        h2 {
+            margin: 0 0 20px 0;
+            color: #fff; /* White for better contrast */
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #fff; /* White for better contrast */
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:invalid {
+            border-color: red;
+        }
+
+        .form-group input:valid {
+            border-color: green;
+        }
+
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+         /* Today Price Text */
+    .today-price {
+        font-family: "Cinzel", serif; /* Adds a classy serif font */
+        font-size: 27px; /* Adjusted font size */
+        font-weight: 700;
+        color: #ffd700; /* Golden color for attention */
+        letter-spacing: 2px;
+        margin: 10px 0;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Deep shadow for drama */  
+    }
+    @media (max-width: 600px) {
+        .home3-container {
+            padding: 15px;
+        }
+
+        .scanner-image img {
+            width: 180px; /* Adjusted size for mobile */
+            height: 180px; /* Adjusted size for mobile */
+        }
+
+  
+        .today-price {
+            font-size: 24px; /* Smaller font size for mobile */
+        }
+
+    }
+    .today-price1 {
+    font-family: "Cinzel", serif; /* Classy serif font */
+    font-size: 27px; /* Large font size for desktop */
+    font-weight: 700;
+    color: #ffd700; /* Golden color for emphasis */
+    letter-spacing: 2px; /* Adds space between letters */
+    margin: 10px 0;
+    white-space: nowrap; /* Prevents text from breaking into a new line */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Handles overflow gracefully */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Shadow for a dramatic effect */
+}
+
+@media (max-width: 600px) {
+    .today-price1 {
+        font-size: 22px; /* Reduced font size for mobile */
+        letter-spacing: 1px; /* Adjust letter spacing for smaller screens */
+    }
+}
+
+@media (max-width: 400px) {
+    .today-price1 {
+        font-size: 20px; /* Further reduce size for very small screens */
+        letter-spacing: 0.5px; /* Adjust spacing further */
+    }
+}
+/* Style the conversion modal */
+.conversion-modal {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Darker overlay */
+  backdrop-filter: blur(5px); /* Adds a blur effect behind the modal */
+}
+
+/* Center the modal content */
+.conversion-modal-content {
+  background: linear-gradient(135deg, #ffffff, #f1f1f1); /* Light gradient background */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 12px;
+  width: 40%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.5s ease-in-out; /* Add a fade-in animation */
+}
+.conversion-submit-button {
+  background: linear-gradient(45deg, #ff6f61, #fe948a); /* Gradient for distinct look */
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 111, 97, 0.3);
+  transition: all 0.3s ease;
+ 
+}
+
+/* Icon inside the conversion-submit-button */
+.conversion-submit-button i.button-icon {
+  margin-right: 10px;
+  font-size: 22px;
+}
+@media (max-width:400px) {
+  
+/* Conversion Check Button */
+.conversion-check-button {
+ 
+  padding: 4px 30px !important;
+}
+
+
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .conversion-modal-content {
+    width: 80%; /* Make modal wider on small screens */
+    padding: 20px; /* Less padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .conversion-modal-content {
+    width: 90%; /* Full width on very small screens */
+    padding: 15px;
+  }
+
+  .conversion-modal-content h2 {
+    font-size: 20px; /* Smaller font for headings */
+  }
+
+  .conversion-modal-content h3 {
+    font-size: 18px;
+  }
+
+  .conversion-modal-content h4 {
+    font-size: 16px;
+  }
+
+  .conversion-modal-content input[type="number"] {
+    width: 100%; /* Full width input on mobile */
+    padding: 10px;
+  }
+
+  .conversion-submit-button {
+    padding: 10px 20px;
+    font-size: 14px; /* Smaller button text */
+  }
+
+  button.sell-button {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+}
+
+/* Fade-in animation for modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Headings and text inside modal */
+.conversion-modal-content h2 {
+  color: #333;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.conversion-modal-content p {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.conversion-modal-content h3 {
+  color: #ff6b6b; /* More vibrant color for the conversion rate */
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.conversion-modal-content h4 {
+  color: #333;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+/* Input field */
+.conversion-modal-content input[type="number"] {
+  width: 70%;
+  padding: 12px;
+  margin-top: 15px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds some depth */
+  transition: border-color 0.3s ease;
+}
+
+.conversion-modal-content input[type="number"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Close button */
+.conversion-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #888;
+  font-size: 30px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.conversion-close:hover {
+  color: #333;
+}
+/* Flexbox container to align buttons in one row */
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Space between buttons */
+  gap: 15px; /* Add some space between the buttons */
+  align-items: center; /* Align buttons vertically in the center */
+  margin: 20px 0; /* Optional: Add some margin around the container */
+}
+
+/* Sell USDT Button */
+.sell-button {
+  background: linear-gradient(45deg, #34eb83, #00c853);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 200, 83, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sell-button i.button-icon {
+  margin-right: 10px;
+  font-size: 22px;
+}
+
+/* Conversion Check Button */
+.conversion-check-button {
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 126, 95, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conversion-check-button i.button-icon {
+  margin-right: 10px;
+  font-size: 22px;
+}
+
+/* Hover and active effects (remain the same as before) */
+.sell-button:hover, .conversion-check-button:hover {
+  transform: translateY(-3px);
+}
+
+.sell-button:active, .conversion-check-button:active {
+  transform: scale(0.98);
+}
+
+</style>
+<div class="home2-container">
+    <!-- Background Logo -->
+    <img src="/assets/img/bglogo5.png" alt="Background Logo" class="background-logo" />
+  
+    <!-- Navbar -->
+    <nav class="navbar">
+      <span style="cursor: pointer; padding-right: 15px; padding-bottom: 16px;" onclick="handleLogout()">
+        <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="24" 
+            height="24" 
+            fill="#FFD700" 
+            viewBox="0 0 24 24" 
+            aria-label="Logout Icon"
+        >
+            <path d="M16 13v-2H7V8l-5 4 5 4v-3h9zM20 3h-9v2h9v14h-9v2h9a2 2 0 002-2V5a2 2 0 00-2-2z"/>
+        </svg>
+    </span>
+    
+      <span class="addback" id="openModal">
+        
+        Add Bank</span>
+    </nav>
+    <h2 class="today-price1">
+      <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="25"
+          height="25"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          aria-label="Currency Icon"
+          class="price-icon"
+      >
+          <path d="M12 1C9.243 1 7 3.243 7 6v4.184c-2.281.419-4 2.447-4 4.916 0 2.761 2.239 5 5 5h2v2h-1v2h6v-2h-1v-2h2c2.761 0 5-2.239 5-5 0-2.469-1.719-4.497-4-4.916V6c0-2.757-2.243-5-5-5zm1 20h-2v-2h2v2zm-3-4v-2h-2c-1.654 0-3-1.346-3-3s1.346-3 3-3h2v-2h2v2h2c1.654 0 3 1.346 3 3s-1.346 3-3 3h-2v2h-2zm0-6h-2v2h2v-2z"/>
+      </svg>
+      CURRENCY EXCHANGE
+    </h2>
+    
+    
+  <h2 class="today-price">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24" 
+        height="24"  
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        aria-label="Today's Price Icon"
+        style="margin-right: 8px; vertical-align: middle;"
+    >
+        <path d="M12 2C10.343 2 9 3.343 9 5v1H7c-1.104 0-2 .896-2 2v6c0 1.104.896 2 2 2h2v1c0 1.657 1.343 3 3 3s3-1.343 3-3v-1h2c1.104 0 2-.896 2-2v-6c0-1.104-.896-2-2-2h-2V5c0-1.657-1.343-3-3-3zm1 18c0 .553-.447 1-1 1s-1-.447-1-1v-1h2v1zM5 10h14v4H5v-4z"/>
+    </svg>
+    Today's Price
+</h2>
+    <!-- Modal -->
+    <div id="myModal" class="modal"> <!-- Initially hidden modal -->
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Add Bank Details</h2>
+        <form id="bankForm">
+          <div class="form-group">
+            <label for="accountHolder">Account Holder</label>
+            <input type="text" id="accountHolder" name="accountHolder" required placeholder="Enter Account Holder Name">
+          </div>
+          <div class="form-group">
+            <label for="accountNo">Account No.</label>
+            <input type="text" id="accountNo" name="accountNo" maxlength="16" required placeholder="Enter Account Number" pattern="\d{1,12}">
+          </div>
+          <div class="form-group">
+            <label for="ifscCode">IFSC Code</label>
+            <input type="text" id="ifscCode" name="ifscCode" required placeholder="Enter IFSC Code">
+          </div>
+          <div class="form-group">
+            <label for="bankName">Bank Name</label>
+            <input type="text" id="bankName" name="bankName" required placeholder="Enter Bank Name">
+          </div>
+          <button type="button" class="submit-btn" id="submitBtn">Submit</button>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1 class="exchange-title">
+        <i class="fas fa-info-circle icon"></i> Bitcoin Exchange Usdt
+      </h1>
+      <p class="exchange-rate" id="exchangeRate">1 USDT = 20 INR</p> <!-- Added id for dynamic update -->
+      <div class="button-container">
+        <button class="sell-button" onclick="handleSellUSDT()">
+          <i class="fas fa-dollar-sign button-icon"></i> Sell USDT
+        </button>
+        <button class="conversion-check-button" onclick="openConversionModal()">
+          <i class="fas fa-shopping-cart button-icon"></i> Let's Check
+        </button>
+      </div>
+      
+      
+    </div>
+ <!-- Conversion Modal -->
+<div id="conversionModal" class="conversion-modal">
+  <div class="conversion-modal-content">
+    <span class="conversion-close" onclick="closeConversionModal()">&times;</span>
+    <h2>USDT to INR Conversion</h2>
+    <p>Welcome! Check the current conversion rate below:</p>
+    <h3 id="modalExchangeRate">1 USDT = 150 INR</h3>
+    
+    <label for="conversionUsdtAmount">Enter USDT Amount:</label>
+    <input type="number" id="conversionUsdtAmount" placeholder="Enter USDT">
+    
+    <h4>Converted Amount in INR: <span id="conversionResult">0</span> INR</h4>
+    
+    <button class="conversion-submit-button" onclick="convertUsdtToInr()">Convert</button>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        <i class="fas fa-dollar-sign footer-icon"></i> It's 100% safe and secure wallet. All rights reserved.
+      </p>
+    </footer>
+  </div>
+  
+  <script>
+    // Function to handle redirection based on token validation
+    const navigate = (url) => {
+      window.location.href = url;
+    };
+  
+    // Check token expiration and redirect if necessary
+    const checkTokenAndRedirect = () => {
+      const token = localStorage.getItem('jwtToken1');
+      if (!token) {
+        window.location.href = "/"; // Redirect to login if no token found
+      }
+    };
+  
+    // Handle Sell USDT button click
+    const handleSellUSDT = () => {
+      navigate("/home3"); // Redirect to Home3 page
+    };
+  
+    let conversionRate = 102; // Default conversion rate
+
+// Fetch Currency Data and Update the Exchange Rate Elements
+const fetchCurrencyData = async () => {
+  try {
+    const response = await fetch('http://localhost:7500/back/getCurrencyData'); // Ensure this URL is correct
+    if (!response.ok) {
+      throw new Error('Failed to fetch currency data');
+    }
+
+    const data = await response.json();
+    console.log(data); // Inspect the full data structure to ensure correctness
+
+    // Fetch and store the conversion rate
+    conversionRate = data.data?.inr || 102; // Fallback to 102 if undefined
+
+    // Update the exchange rate element in both <p> and <h3>
+    document.getElementById('exchangeRate').textContent = `1 USDT = ${conversionRate} INR`;
+    document.getElementById('modalExchangeRate').innerText = `1 USDT = ${conversionRate} INR`;
+  } catch (error) {
+    console.error('Error fetching currency data:', error);
+  }
+};
+
+    // Combine the token check and data fetch into one onload function
+    window.onload = function () {
+      checkTokenAndRedirect(); // Ensure token validity
+      fetchCurrencyData(); // Fetch currency data
+    };
+  </script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() { // Ensure DOM is fully loaded
+      const modal = document.getElementById("myModal");
+      const openModalBtn = document.getElementById("openModal");
+      const closeModalBtn = document.getElementById("closeModal");
+      const bankForm = document.getElementById("bankForm");
+      const submitBtn = document.getElementById("submitBtn");
+  
+      // Open modal
+      openModalBtn.onclick = function() {
+        modal.style.display = "flex"; // Show modal
+      };
+  
+      // Close modal
+      closeModalBtn.onclick = function() {
+        modal.style.display = "none"; // Hide modal
+      };
+  
+      // Close modal on outside click
+      window.onclick = function(event) {
+        if (event.target === modal) {
+          modal.style.display = "none"; // Hide modal
+        }
+      };
+  
+      // Handle form submission
+      const handleSubmit = async () => {
+        const bankDetails = {
+          accountHolder: bankForm.accountHolder.value,
+          accountNo: bankForm.accountNo.value,
+          ifscCode: bankForm.ifscCode.value,
+          bankName: bankForm.bankName.value,
+        };
+  
+        const accountNoPattern = /^\d{1,16}$/;
+        if (!accountNoPattern.test(bankDetails.accountNo)) {
+          alert('Account number must be numeric and up to 16 digits.');
+          return;
+        }
+  
+        try {
+          const token = localStorage.getItem('jwtToken1');
+          if (!token) {
+            alert('Token not found. Please log in again.');
+            return;
+          }
+  
+          const response = await fetch('http://localhost:7500/back/bank-details-block', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`,
+            },
+            body: JSON.stringify(bankDetails),
+          });
+  
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+  
+          alert('Bank details submitted successfully!');
+          modal.style.display = "none";
+          bankForm.reset();
+        } catch (error) {
+          console.error('Error:', error);
+          alert('There was a problem submitting your bank details. Please try again.');
+        }
+      };
+  
+      // Attach click event to the submit button
+      submitBtn.onclick = handleSubmit;
+    });
+
+
+    // Function to handle logout
+const handleLogout = () => {
+  // Remove the token from localStorage
+  localStorage.removeItem('jwtToken1');
+
+  // Redirect to the login page or home page after logout
+  window.location.href = "/";
+};
+// Open the conversion modal
+function openConversionModal() {
+  document.getElementById('conversionModal').style.display = 'block';
+}
+
+// Close the conversion modal
+function closeConversionModal() {
+  document.getElementById('conversionModal').style.display = 'none';
+}
+
+// Convert USDT to INR using the fetched rate
+function convertUsdtToInr() {
+  const usdtAmount = document.getElementById('conversionUsdtAmount').value;
+  const convertedAmount = usdtAmount * conversionRate;
+
+  document.getElementById('conversionResult').innerText = convertedAmount.toFixed(2);
+}
+
+  </script>
+  
+  
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
