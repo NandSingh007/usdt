@@ -295,9 +295,14 @@
                 </p>
                 <!-- Copy Success Message -->
                 <span id="copyMessage" style="display:none; color: green;">Address copied!</span>
+                
             </div>
     
             <!-- Instructions -->
+            <p class="payment-instruction">
+               
+            </p>
+          
             <p class="payment-instruction">
                 After completing the payment, please share the payment screenshot here.
             </p>
@@ -391,7 +396,32 @@
         window.location.href = "/Home2";
     }
     </script>
-    
+      <script>
+        // Function to load and display the converted amount from localStorage
+        function loadConvertedAmount() {
+            // alert("hi")
+          const storageKey = 'usdtConversion';
+          
+          // Retrieve the stored data from localStorage
+          const storedData = localStorage.getItem(storageKey);
+        //   alert(storedData)
+          // Parse the stored data and check if it exists
+          if (storedData) {
+            const parsedData = JSON.parse(storedData);
+            
+            // Access the INR amount and display it in the <p> tag
+            document.querySelector('.payment-instruction').innerText = 
+              `Your Amount: ${parsedData.inr} INR`;
+          } else {
+            // If no data exists, show a default message
+            document.querySelector('.payment-instruction').innerText = 
+              'No conversion data available.';
+          }
+        }
+  
+        // Call the function to load the converted amount on page load
+        window.onload = loadConvertedAmount;
+      </script>
 </body>
 </html>
 
