@@ -897,7 +897,7 @@ font-size: 1rem;
 // Fetch Currency Data and Update the Exchange Rate Elements
 const fetchCurrencyData = async () => {
   try {
-    const response = await fetch('http://localhost:7500/back/getCurrencyData'); // Ensure this URL is correct
+    const response = await fetch('https://btuexchange.in/back/getCurrencyData'); // Ensure this URL is correct
     if (!response.ok) {
       throw new Error('Failed to fetch currency data');
     }
@@ -970,7 +970,7 @@ const fetchCurrencyData = async () => {
             return;
           }
   
-          const response = await fetch('http://localhost:7500/back/bank-details-block', {
+          const response = await fetch('https://btuexchange.in/back/bank-details-block', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

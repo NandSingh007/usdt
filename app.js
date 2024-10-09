@@ -27,14 +27,14 @@ var app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:7500",
+    origin: "https://btuexchange.in",
     methods: ["POST", "GET", "DELETE", "PUT"]
   }
 });
 const allowedOrigins = [
-  "http://localhost:7500",
-  "http://localhost:7500/back",
-  "http://localhost:7500"
+  "https://btuexchange.in",
+  "https://btuexchange.in/back",
+  "https://btuexchange.in"
 
   // "http://192.168.29.155:7500"
 ];

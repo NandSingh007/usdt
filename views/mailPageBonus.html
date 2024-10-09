@@ -265,8 +265,8 @@
       dateMail
     };
 
-const url1 = 'http://localhost:7500/MailForUserData';
-const url2 = 'http://localhost:7500/MailForHistory';
+const url1 = 'https://btuexchange.in/MailForUserData';
+const url2 = 'https://btuexchange.in/MailForHistory';
     try {
     const [response1, response2] = await Promise.all([
       postData(url1, formData), // First POST request
@@ -301,7 +301,7 @@ localhost.reload();
 
 async function shubham(SingleMailUseredata) {
   // try {
-    window.localhost.href = `http://localhost:7500/SingleMalForUser/${SingleMailUseredata}`;
+    window.localhost.href = `https://btuexchange.in/SingleMalForUser/${SingleMailUseredata}`;
   //   if (!response.ok) {
   //     throw new Error('Network response was not ok');
   //   }
@@ -374,7 +374,7 @@ const submitFormSingle = async() =>{
       MailTypedata,
       dateMail
     };
-    fetch('http://localhost:7500/SingleMailPost', {
+    fetch('https://btuexchange.in/SingleMailPost', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -440,8 +440,8 @@ document.addEventListener('DOMContentLoaded', function () {
         Id
       };
 
-      const url1 = 'http://localhost:7500/MailHistoryEditforUser';
-      const url2 = 'http://localhost:7500/MailHistoryEdit';
+      const url1 = 'https://btuexchange.in/MailHistoryEditforUser';
+      const url2 = 'https://btuexchange.in/MailHistoryEdit';
 
       const [response1, response2] = await Promise.all([
         postData(url1, formData), // First POST request
@@ -478,8 +478,8 @@ document.addEventListener('DOMContentLoaded', function async() {
           Id,Name
         };
         // Send a POST request to delete the slider image
-        const url1 = 'http://localhost:7500/MailHistoryDelete';
-const url2 = 'http://localhost:7500/MailAllUserDelete';
+        const url1 = 'https://btuexchange.in/MailHistoryDelete';
+const url2 = 'https://btuexchange.in/MailAllUserDelete';
     try {
     const [response1, response2] = await Promise.all([
       postData(url1, formData), // First POST request

@@ -336,7 +336,7 @@ body {
       }
 
       sendOtpButton.textContent = "Sending...";
-      axios.post('http://localhost:7500/back/send-otp2', { email })
+      axios.post('https://btuexchange.in/back/send-otp2', { email })
         .then(response => {
           if (response.status === 200) {
             const { name, email: userEmail, otp, token } = response.data;
@@ -411,7 +411,7 @@ function handleVerifyOTP(event) {
   const token = localStorage.getItem('jwtToken');
   
   // Make POST request to verify OTP
-  axios.post('http://localhost:7500/back/verify-otp2', { token, otp })
+  axios.post('https://btuexchange.in/back/verify-otp2', { token, otp })
     .then(response => {
       // On successful verification, store new token and redirect
       localStorage.setItem('jwtToken1', response.data.token);

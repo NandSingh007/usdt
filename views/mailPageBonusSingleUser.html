@@ -171,7 +171,7 @@
         Id
       };
       
-    fetch('http://localhost:7500/SingleUserMailEdit', {
+    fetch('https://btuexchange.in/SingleUserMailEdit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function async() {
           Id,UserId
         };
         console.log(formData)
-        fetch(`http://localhost:7500/deleteSIngleMailUser`, {
+        fetch(`https://btuexchange.in/deleteSIngleMailUser`, {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json'

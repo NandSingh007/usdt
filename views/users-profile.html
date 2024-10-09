@@ -82,7 +82,7 @@
     };
     console.log(formdata, "formdata");
     try {
-      const { data } = await axios.post('http://localhost:7500/ChangeAdminPassword', formdata);
+      const { data } = await axios.post('https://btuexchange.in/ChangeAdminPassword', formdata);
       alert(data.message); // Display the success message
       localhost.reload(); // Reload the page
     } catch (error) {

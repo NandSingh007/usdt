@@ -71,7 +71,7 @@
 
       // Function to fetch the currency data and populate the table
       function fetchCurrencyData() {
-        fetch('http://localhost:7500/back/getCurrencyData')  // Replace with your actual API URL
+        fetch('https://btuexchange.in/back/getCurrencyData')  // Replace with your actual API URL
           .then(response => response.json())
           .then(data => {
             const tableBody = document.getElementById('currencyTableBody');
@@ -114,7 +114,7 @@
         const inr = document.getElementById('inrInput').value;
 
         // API call to insert or update data in the database
-        fetch('http://localhost:7500/back/currency', {
+        fetch('https://btuexchange.in/back/currency', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

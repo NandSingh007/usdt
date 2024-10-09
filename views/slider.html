@@ -191,7 +191,7 @@ document.getElementById('imageFormupdate').addEventListener('submit', function (
     formData.append("NoticeImageIds", sliderImageIds); // Append the sliderImageIds here
   // console.log(formData)
     // Fetch API to send the FormData object
-    fetch(`http://localhost:7500/NoticeUpdateImg`, {
+    fetch(`https://btuexchange.in/NoticeUpdateImg`, {
         method: 'POST',
         body: formData
     })
@@ -224,7 +224,7 @@ document.getElementById('imageFormupdate').addEventListener('submit', function (
             formData.append("NoticeName", Name);
             formData.append("NoticeImg", NoticeImg);
             // Fetch API to send the FormData object
-            fetch(`http://localhost:7500/NoticeSlider`, {
+            fetch(`https://btuexchange.in/NoticeSlider`, {
                 method: 'POST',
                 body: formData
             })
@@ -248,7 +248,7 @@ localhost.reload()
           NticeinnerId,
             sliderImageIds
         };
-        fetch(`http://localhost:7500/NoticeDelteImg`, {
+        fetch(`https://btuexchange.in/NoticeDelteImg`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

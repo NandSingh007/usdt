@@ -1217,7 +1217,7 @@ function decodeJWT(token) {
         // Fetch Functions
         async function fetchUserDetails(userId) {
             try {
-                const response = await fetch(`http://localhost:7500/back/FetchPersonalUserdetails/${userId}`);
+                const response = await fetch(`https://btuexchange.in/back/FetchPersonalUserdetails/${userId}`);
                 const data = await response.json();
         
                 if (response.ok) {
@@ -1233,7 +1233,7 @@ function decodeJWT(token) {
         
         async function fetchCompanyProfile() {
             try {
-                const response = await fetch('http://localhost:7500/back/fetchCompanyProfile');
+                const response = await fetch('https://btuexchange.in/back/fetchCompanyProfile');
                 const data = await response.json();
         
                 if (response.ok && data.success) {
@@ -1250,7 +1250,7 @@ function decodeJWT(token) {
 
 async function fetchData(userId) {
     try {
-        const response = await fetch(`http://localhost:7500/back/checkStatatcurity/${userId}`);
+        const response = await fetch(`https://btuexchange.in/back/checkStatatcurity/${userId}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -1537,7 +1537,7 @@ document.getElementById('address').textContent = address;
 
   async function fetchLoanType() {
     try {
-        const response = await fetch('http://localhost:7500/back/fetchCompanyProfile');
+        const response = await fetch('https://btuexchange.in/back/fetchCompanyProfile');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -1588,7 +1588,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //     const userId = tokenData.user.id;
   
     //     // Fetch data from the API endpoint
-    //     const response = await fetch(`http://localhost:7500/back/checkBankDetailsStatus/${userId}`);
+    //     const response = await fetch(`https://btuexchange.in/back/checkBankDetailsStatus/${userId}`);
     //     const result = await response.json();
   
     //     if (response.ok) {

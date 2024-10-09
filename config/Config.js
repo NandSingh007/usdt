@@ -42,7 +42,7 @@ function generateRandomAPIString(length = 35) {
 
 // Configuration object with various settings
 const config = {
-  baseUrl: "http://localhost:7500",
+  baseUrl: "https://btuexchange.in",
   mongoURI:
     "mongodb+srv://worldpay472:jCdrzMW5M78BU1m5@cluster0.9pqtr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
   port: 7500

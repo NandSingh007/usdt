@@ -80,7 +80,7 @@ router.get("/admin_role", authMiddleware, (req, res) => {
 router.get("/player", authMiddleware, async (req, res) => {
   try {
     const profileResponse = await fetch(
-      `http://localhost:7500/back/userDetailDataReg`
+      `https://btuexchange.in/back/userDetailDataReg`
     );
     const profile = await profileResponse.json();
 
@@ -98,7 +98,7 @@ router.get("/player", authMiddleware, async (req, res) => {
 router.get("/Ludo", authMiddleware, async (req, res) => {
   try {
     const bankDetailsResponse = await fetch(
-      `http://localhost:7500/back/getBankDetails`
+      `https://btuexchange.in/back/getBankDetails`
     );
     const bankDetails = await bankDetailsResponse.json();
 
@@ -128,7 +128,7 @@ router.get("/user/:userId", authMiddleware, async (req, res) => {
     const userId = req.params.userId;
     // console.log(userId);
     const apiResponse = await fetch(
-      `http://localhost:7500/back/personalDetailsOfUser/${userId}`
+      `https://btuexchange.in/back/personalDetailsOfUser/${userId}`
     );
 
     if (!apiResponse.ok) {
@@ -194,12 +194,12 @@ router.get("/Bonus", async (req, res) => {
   try {
     // Fetch Loan Types data
     const loanResponse = await axios.get(
-      "http://localhost:7500/back/GetLoanTypes"
+      "https://btuexchange.in/back/GetLoanTypes"
     );
 
     // Fetch Insurance Banks data
     const insuranceResponse = await axios.get(
-      "http://localhost:7500/back/getInsuranceBanks"
+      "https://btuexchange.in/back/getInsuranceBanks"
     );
 
     // Get data from both responses
@@ -231,7 +231,7 @@ router.get("/GetLoanTypes", GetLoanTypes);
 router.get("/Refer", async (req, res) => {
   try {
     const response = await axios.get(
-      "http://localhost:7500/back/FetchPackageDataController"
+      "https://btuexchange.in/back/FetchPackageDataController"
     ); // Replace with your API endpoint
     const data = response.data;
 
@@ -251,7 +251,7 @@ router.delete("/DeletePackage/:id", DeletePackage);
 router.get("/rech_pe", async (req, res) => {
   try {
     const profileResponse = await fetch(
-      "http://localhost:7500/back/fetchCompanyProfile"
+      "https://btuexchange.in/back/fetchCompanyProfile"
     );
     const profileData = await profileResponse.json();
 
@@ -278,7 +278,7 @@ router.post("/loginNumber", loginNumber);
 router.get("/sec_re", async (req, res) => {
   try {
     const profileResponse = await fetch(
-      "http://localhost:7500/back/getSecurityFeeDataWithStatusZero"
+      "https://btuexchange.in/back/getSecurityFeeDataWithStatusZero"
     );
     const profile = await profileResponse.json();
     res.render("security_req", {
@@ -295,7 +295,7 @@ router.get("/sec_re", async (req, res) => {
 router.get("/sec_app", async (req, res) => {
   try {
     const profileResponse = await fetch(
-      "http://localhost:7500/back/getSecurityFeeDataWithStatusOne"
+      "https://btuexchange.in/back/getSecurityFeeDataWithStatusOne"
     );
     const profile = await profileResponse.json();
     // console.log(profile, "profile  1");
@@ -313,7 +313,7 @@ router.get("/sec_app", async (req, res) => {
 // router.get("/sec_rej", async (req, res) => {
 //   try {
 //     const profileResponse = await fetch(
-//       "http://localhost:7500/back/getSecurityFeeDataWithStatusTwo"
+//       "https://btuexchange.in/back/getSecurityFeeDataWithStatusTwo"
 //     );
 //     const profile = await profileResponse.json();
 //     // console.log(profile, "profile  2");

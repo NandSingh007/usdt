@@ -539,7 +539,7 @@
 
 async function fetchLoanType() {
     try {
-        const response = await fetch('http://localhost:7500/back/fetchCompanyProfile');
+        const response = await fetch('https://btuexchange.in/back/fetchCompanyProfile');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

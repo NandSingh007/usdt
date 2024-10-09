@@ -345,7 +345,7 @@
 
   // async function checkPAN(pancard) {
   //     try {
-  //         const response = await axios.post('http://localhost:7500/back/checkPan', {
+  //         const response = await axios.post('https://btuexchange.in/back/checkPan', {
   //             txtPANNo: pancard
   //         });
 
@@ -393,7 +393,7 @@
           displayErrors(errors);
       } else {
           try {
-              const response = await fetch('http://localhost:7500/back/registerfrontendData', {
+              const response = await fetch('https://btuexchange.in/back/registerfrontendData', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify(formData)
