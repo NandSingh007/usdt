@@ -1,5 +1,3 @@
-// backend/models/User.js
-
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
@@ -18,7 +16,6 @@ const UserSchema = new mongoose.Schema({
     unique: true,
     match: /\S+@\S+\.\S+/ // Basic email validation
   },
-
   aadharcard: {
     type: String,
     required: true,
@@ -26,6 +23,10 @@ const UserSchema = new mongoose.Schema({
     match: /^\d{12}$/ // Exactly 12 digits
   },
   address: {
+    type: String,
+    required: true
+  },
+  password: {
     type: String,
     required: true
   },
@@ -38,8 +39,8 @@ const UserSchema = new mongoose.Schema({
 });
 
 const FrontRegistrationData = mongoose.model(
-  "FrontRegistrationschema",
+  "FrontRegistrationData",
   UserSchema
 );
+
 module.exports = FrontRegistrationData;
-// module.exports = mongoose.model("FrontRegistrationData", userSchema);

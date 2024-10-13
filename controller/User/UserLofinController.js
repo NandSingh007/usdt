@@ -1705,12 +1705,11 @@ exports.login = async (req, res) => {
 };
 
 // Controller function to handle registration
-exports.registerfrontendData = async (req, res) => {
-  const { name, phone, email, aadharcard, address } = req.body;
-  console.log(name, phone, email, aadharcard, address);
 
+exports.registerfrontendData = async (req, res) => {
+  const { name, phone, email, aadharcard, address, password } = req.body;
   try {
-    // Check if user with same email, pancard or aadharcard already exists
+    // Check if user with same email or aadharcard already exists
     const existingUser = await FrontRegistrationData.findOne({
       $or: [{ email }, { aadharcard }]
     });
@@ -1727,14 +1726,18 @@ exports.registerfrontendData = async (req, res) => {
       });
     }
 
-    // If no duplicate found, create new user
+    // Hash the password using bcrypt before saving
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Create new user with hashed password
     const newUser = new FrontRegistrationData({
       name,
       phone,
       email,
-
       aadharcard,
-      address
+      address,
+      password: hashedPassword // Save hashed password
     });
 
     await newUser.save();
@@ -1775,49 +1778,47 @@ exports.registerfrontendData = async (req, res) => {
 const JWT_SECRET = "your_jwt_secret"; // Replace with your actual secret
 
 exports.sendotp2 = async (req, res) => {
-  const { email } = req.body;
+  const { email, password } = req.body;
+  // console.log(email, password);
 
-  // Basic validation
-  if (!email) {
-    return res.status(400).json({ message: "Email is required." });
+  // Basic validation for email and password
+  if (!email || !password) {
+    return res
+      .status(400)
+      .json({ message: "Email and password are required." });
   }
 
   try {
     // Find user by email
-    const user = await FrontRegistrationData.findOne({
-      email: email
-    });
+    const user = await FrontRegistrationData.findOne({ email: email });
+    // console.log(user);
 
     if (!user) {
       return res.status(400).json({ message: "Email not registered." });
     }
 
-    // Generate OTP
-    const otp = Math.floor(100000 + Math.random() * 750000).toString(); // 6-digit OTP
-    const otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes from now
-
-    // Update user with OTP and expiration
-    user.otp = otp;
-    user.otpExpires = otpExpires;
-    await user.save();
-
+    // Check if the provided password matches the stored hashed password
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      // console.log(password, "password");
+      return res.status(400).json({ message: "Incorrect password." });
+    }
+    console.log(isMatch);
     // Create JWT token
     const token = jwt.sign({ id: user._id, email: user.email }, JWT_SECRET, {
       expiresIn: "1d" // Token expires in 1 day
     });
 
-    // Optionally send the OTP via email
-    // await sendOtpEmail(user.name, user.email, otp);
-
+    // console.log(token);
+    // Respond with token and user information
     res.status(200).json({
-      message: "OTP sent successfully.",
+      message: "Login successful.",
       name: user.name,
       email: user.email,
-      otp: otp,
       token: token // Send token in the response
     });
   } catch (error) {
-    console.error("Send OTP Error:", error);
+    console.error("Login Error:", error);
     res.status(500).json({ message: "Server error. Please try again later." });
   }
 };

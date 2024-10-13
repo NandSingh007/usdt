@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <link rel="icon" href="assets/img/chotalogo.png" type="image/x-icon"> <!-- Change this to your favicon path -->
+  <link rel="icon" href="assets/img/bglogo5.png" type="image/x-icon"> <!-- Change this to your favicon path -->
 
   <link rel="stylesheet" href="Login.css">
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -257,175 +257,105 @@ body {
     background-color: #0056b3;
   }
     </style>
-  <div class="login-container">
-   
-    <div class="login-form">
-      <h3 style="text-align: center;"> <img src="/assets/img/1005.png" style="text-align: center;width:40%" ></h3>
-      <h2 class="form-title">Login</h2>
+ <div class="login-container">
+  <div class="login-form">
+    <h3 style="text-align: center;"> 
+      <img src="/assets/img/1005.png" style="text-align: center; width: 40%;" />
+    </h3>
+    <h2 class="form-title">Login</h2>
 
-      <!-- Step 1: Enter Email -->
-      <form id="step1-form" onsubmit="handleSendOTP(event)">
-        <div class="form-group">
-          <i class="fas fa-envelope form-icon"></i>
-          <input type="email" id="email" placeholder="Email" required />
-        </div>
-        <span id="error-message" class="error-message"></span>
-        <button type="submit" class="submit-button" id="send-otp-button">
-          <i class="fas fa-paper-plane button-icon"></i> Send OTP
-        </button>
-      </form>
-
-      <!-- Step 2: Enter OTP -->
-      <form id="step2-form" onsubmit="handleVerifyOTP(event)" style="display: none;">
-        <div class="otp-container">
-          <input type="number" id="otp1" class="otp-input" maxlength="1" oninput="moveToNext(this, 'otp2')" required />
-          <input type="number" id="otp2" class="otp-input" maxlength="1" oninput="moveToNext(this, 'otp3')" required />
-          <input type="number" id="otp3" class="otp-input" maxlength="1" oninput="moveToNext(this, 'otp4')" required />
-          <input type="number" id="otp4" class="otp-input" maxlength="1" oninput="moveToNext(this, 'otp5')" required />
-          <input type="number" id="otp5" class="otp-input" maxlength="1" oninput="moveToNext(this, 'otp6')" required />
-          <input type="number" id="otp6" class="otp-input" maxlength="1" oninput="moveToNext(this, '')" required />
-        </div>
-        <span id="otp-error-message" class="error-message"></span>
-        <button type="submit" class="submit-button" id="verify-otp-button">
-          <i class="fas fa-paper-plane button-icon"></i> Verify OTP
-        </button>
-      </form>
-      
-      <!-- Registration Button -->
-      
-    <p style="padding: 0px; margin: 0px; font-size: 15px; font-family: 'Times New Roman', Times, serif;"> Please first<button class="register-button" onclick="handleRegister()">
-      <i class="fas fa-user-plus button-icon"></i> Register
-    </button></p>
-    </div>
+    <!-- Step 1: Login with Email and Password -->
+    <form id="login-form" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <i class="fas fa-envelope form-icon"></i>
+        <input type="email" id="email" placeholder="Email" required />
+      </div>
+      <div class="form-group">
+        <i class="fas fa-lock form-icon"></i>
+        <input type="password" id="password" placeholder="Password" required />
+      </div>
+      <span id="login-error-message" class="error-message"></span>
+      <button type="submit" class="submit-button" id="login-button">
+        <i class="fas fa-sign-in-alt button-icon"></i> Login
+      </button>
+    </form>
+    
+    <!-- Registration Button -->
+    <p style="padding: 0px; margin: 0px; font-size: 15px; font-family: 'Times New Roman', Times, serif;">
+      Don't have an account? 
+      <button class="register-button" onclick="handleRegister()">
+        <i class="fas fa-user-plus button-icon"></i> Register
+      </button>
+    </p>
   </div>
+</div>
+
 
   <script>
     // Initialize emailjs
-    emailjs.init("j3YiNF2YMhWKlEpGs");
-
-    const step1Form = document.getElementById('step1-form');
-    const step2Form = document.getElementById('step2-form');
-    const sendOtpButton = document.getElementById('send-otp-button');
-    const verifyOtpButton = document.getElementById('verify-otp-button');
-    const errorMessage = document.getElementById('error-message');
-    const otpErrorMessage = document.getElementById('otp-error-message');
-
-    // Check if token is available and redirect to Home1 page
-    const checkTokenAndRedirect = () => {
-        const token = localStorage.getItem('jwtToken1');
-        // console.log(token)
-        if (token) {
-            window.location.href = "/Home1";
-        }
-    };
-
-    // Call the token check on page load
-    window.onload = checkTokenAndRedirect;
-
-    // Function to handle sending OTP
-    function handleSendOTP(event) {
-      event.preventDefault();
-      const email = document.getElementById('email').value;
-      errorMessage.textContent = "";
-
-      // Basic email validation
-      const emailRegex = /\S+@\S+\.\S+/;
-      if (!email || !emailRegex.test(email)) {
-        errorMessage.textContent = "Please enter a valid email address.";
-        return;
-      }
-
-      sendOtpButton.textContent = "Sending...";
-      axios.post('https://btuexchange.in/back/send-otp2', { email })
-        .then(response => {
-          if (response.status === 200) {
-            const { name, email: userEmail, otp, token } = response.data;
-            localStorage.setItem('jwtToken', token);
-            sendOtpEmail(name, userEmail, otp);
-            // alert(`OTP has been sent to ${userEmail}.`);
-            step1Form.style.display = 'none';
-            step2Form.style.display = 'block';
-          }
-        })
-        .catch(err => {
-          errorMessage.textContent = "Failed to send OTP. Please try again.";
-        })
-        .finally(() => {
-          sendOtpButton.textContent = "Send OTP";
-        });
-    }
-
-    // Function to send OTP via email using emailjs
-    function sendOtpEmail(name, email, otp) {
-      emailjs.send("service_onpyvfa", "template_yqwex1h", {
-        to_name: name,
-        from_name: "xchange",
-        to_Otp: otp,
-        to_email: email
-      });
-    }
-
-    // Function to handle OTP verification
- 
-
-    // Function to handle registration redirection
-    function handleRegister() {
-      window.location.href = "/Registration";
-    }
-</script>
-
-
-<script>
- // Function to move focus to the next input box when a digit is entered
-function moveToNext(current, nextFieldId) {
-  if (current.value.length === 1 && nextFieldId !== '') {
-    document.getElementById(nextFieldId).focus();
+   // Check if token is available and redirect to Home1 page
+const checkTokenAndRedirect = () => {
+  const token = localStorage.getItem('jwtToken1');
+  if (token) {
+    window.location.href = "/Home1";
   }
-}
+};
 
-// Function to handle OTP verification
-function handleVerifyOTP(event) {
+// Call the token check on page load
+window.onload = checkTokenAndRedirect;
+
+// Function to handle login with email and password
+function handleLogin(event) {
+  // alert("hiii")
   event.preventDefault();
 
-  // Collect the OTP digits and concatenate into a string
-  let otp = '';
-  for (let i = 1; i <= 6; i++) {
-    otp += document.getElementById('otp' + i).value.toString(); // Convert number to string
-  }
-
-  const otpErrorMessage = document.getElementById('otp-error-message');
-  const verifyOtpButton = document.getElementById('verify-otp-button');
+  const email = document.getElementById('email').value.trim();
+  // alert(email)
+  const password = document.getElementById('password').value.trim();
+  // alert(password)
+  const errorMessage = document.getElementById('error-message');
+  const loginButton = document.getElementById('login-button');
   
-  otpErrorMessage.textContent = "";  // Clear previous error messages
-
-  // Validate OTP (should be exactly 6 digits)
-  if (otp.length !== 6) {
-    otpErrorMessage.textContent = "Please enter a valid 6-digit OTP.";
+  // Basic email validation
+  const emailRegex = /\S+@\S+\.\S+/;
+  if (!email || !emailRegex.test(email)) {
+    errorMessage.textContent = "Please enter a valid email address.";
     return;
   }
 
-  // Change button text to show verification in progress
-  verifyOtpButton.textContent = "Verifying...";
+  // Validate that both fields are filled in
+  if (!password) {
+    errorMessage.textContent = "Please enter your password.";
+    return;
+  }
 
-  // Get the JWT token from local storage
-  const token = localStorage.getItem('jwtToken');
-  
-  // Make POST request to verify OTP
-  axios.post('https://btuexchange.in/back/verify-otp2', { token, otp })
+  // Change button text to indicate login in progress
+  loginButton.textContent = "Logging in...";
+
+  // Send login request to the backend
+  axios.post('https://btuexchange.in/back/send-otp2', { email, password })
     .then(response => {
-      // On successful verification, store new token and redirect
-      localStorage.setItem('jwtToken1', response.data.token);
-      window.location.href = "/Home1"; // Redirect to Home1 on success
+      if (response.status === 200) {
+        const { token } = response.data;
+        localStorage.setItem('jwtToken1', token); // Store token in localStorage
+        window.location.href = "/Home1"; // Redirect to Home1 on success
+      } else {
+        errorMessage.textContent = "Login failed. Please check your email and password.";
+      }
     })
     .catch(err => {
-      // Handle errors
-      otpErrorMessage.textContent = "Failed to verify OTP. Please try again.";
+      errorMessage.textContent = "Failed to login. Please try again.";
     })
     .finally(() => {
-      // Restore the button text after verification attempt
-      verifyOtpButton.textContent = "Verify OTP";
+      loginButton.textContent = "Login";
     });
 }
+
+// Function to handle registration redirection
+function handleRegister() {
+  window.location.href = "/Registration";
+}
+
 
 </script>
 

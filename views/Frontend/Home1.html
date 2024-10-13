@@ -202,12 +202,13 @@
     // Redirect to /home2 after 5 seconds (5000 milliseconds)
     setTimeout(() => {
       window.location.href = "/home2";
-    }, 4222000);
+    }, 4000);
     
     const checkTokenAndRedirect = () => {
         const token = localStorage.getItem('jwtToken1');
-        console.log(token)
+        // alert("hii")
         if (!token) {
+        
             window.location.href = "/";
         }
     };
